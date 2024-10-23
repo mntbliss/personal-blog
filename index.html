@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>boundlessbliss ✨</title>
+        <meta name="description" content="boundlessbliss developer main landing page, boundlessbliss CV, boundlessbliss portfolio">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta property="og:title" content="boundlessbliss" /> 
+        <meta property="og:description" content="boundlessbliss dev page" /> 
+        <meta property="og:image" content="https://bunbun.cloud/assets/images/jhinsi.gif" /> 
+        <meta property="og:url" content="https://bliss.moe" /> 
+        
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.2/css/bulma.min.css">
+        <link rel="stylesheet" href="./assets/css/main.css">
+        <link rel="stylesheet" href="./assets/css/preview.css">
+        <link rel="stylesheet" href="./assets/css/avatar.css">
+        
+        <!-- Vue3 connect as a module (no SSR) -->
+        <script src="https://unpkg.com/vue@3.5.10/dist/vue.global.prod.js"></script>
+
+        <!-- Main modules connect -->
+        <script src="./assets/js/utility/hoverables.js"></script>
+    </head>
+    <body class="non-scrollable">
+
+        <div id="app">
+            <!-- HERO FULLSCREEN START -->
+            <section class="hero is-fullheight">
+                
+                <!-- NAV BAR START -->
+                <div class="hero-head">
+                  <header class="navbar">
+                    <div class="container">
+                      <div class="navbar-brand">
+                        <a class="navbar-item is-rounded-extra is-64x64-force is-skeleton" :href="projects['minty_bar_link']"> <img class="is-50x50-force" :src="icons['logo']" alt="" /> </a>
+                        <span class="navbar-item">
+                          <a id="play-music-button" v-on:click="PlayVideo()" class="button is-gray is-rounded is-skeleton">
+                            <span class="icon">
+                              <img class="icon-mini" :src="icons['music']" />
+                            </span>
+                            <span>Burnice!</span>
+                          </a>
+                        </span>
+                        <span class="navbar-burger" data-target="navbarMenuHeroC">
+                          <span></span>
+                          <span></span>
+                          <span></span>
+                          <span></span>
+                        </span>
+                      </div>
+                      <div id="navbarMenuHeroC" class="navbar-menu">
+                        <div class="navbar-end">
+                          <span class="navbar-item">
+                            <a :href="socials['github']" class="button is-dark is-skeleton">
+                              <span class="icon">
+                                <img class="icon-small mr-2 ml-2" :src="icons['github']" />
+                              </span>
+                              <span>GitHub</span>
+                            </a>
+                          </span>
+                          <span class="navbar-item">
+                            <a :href="socials['bluesky']" class="button is-info is-skeleton">
+                              <span class="icon">
+                                <img class="icon-mini mr-2 ml-2" :src="icons['bluesky']" />
+                              </span>
+                              <span>BlueSky News</span>
+                            </a>
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                  </header>
+                </div>
+                <!-- NAV BAR END -->
+
+              
+                <!-- HERO CONTENT START -->
+                <div class="hero-body">
+                  <div id="content-page-about" class="box container has-text-centered">
+
+                    <div class="avatar-holder mb-3">
+                      <figure class="fir-image-figure is-skeleton">
+                        <a class="fir-imageover" rel="noopener" target="_blank" href="https://discord.gg/limelight-mint">
+                          <img class="fir-clickcircle" :src="GetDiscordAvatar()" alt="">
+                          <span :class="GetDiscordStatusCSS()"></span>
+                        </a>
+                      </figure>
+                    </div>
+                      
+                    <p class="has-text-centered is-skeleton"><strong>{{ GetDiscordName() }}</strong></p>
+                    <span v-if="GetDiscordStatus() == 'offline'" class="is-skeleton">
+                      <p class="mt-1 mb-4 is-flex main-description is-skeleton"><img class="is-32x32-force" :src="icons['eepy']"></img>&nbsp;eepy</p>
+                    </span>
+                    <span v-else class="is-skeleton">
+                      <p v-if="!IsListeningToSpotify()" class="mb-4 is-flex main-description"><img class="is-32x32-force" :src="icons['vscode']"></img> &nbsp; <strong class="has-text-link-light"> {{ GetDiscordActivity() }} </strong></p>
+                      <p v-else class="has-text-centered mb-4 is-flex main-description"><img class="is-32x32-force" :src="icons['spotify']"></img> &nbsp; <strong class="has-text-success">{{ GetDiscordActivity() }}</strong></p>
+                    </span>
+                    
+                    <p class="subtitle is-skeleton">
+                      Welcome to my little <strong class="has-text-danger">moe place</strong>.
+                      <br><small class="has-text-danger"><small>FullStack Developer</small></small><br>
+                      <br>Games, VR/XR projects, Web,
+                      <br>iOS/Android apps and publishing,
+                      <br>Backend, Optimization, DB Relationship.
+                    </p>
+                      <hr class="mb-0 mt-4">
+                    <p class="is-skeleton"><br><small><small>
+                      Come see my <a v-on:click="OpenPage(2)" class="has-text-warning-light">projects</a> and <strong><a :href="projects['minty_bar_link']" class="has-text-warning-light"> universe</a></strong>,
+                      <br><strong class='has-text-danger'><a :href="projects['minty_bar_link']" class="has-text-danger">Feel hyped?</a></strong> Create profile at <strong><a :href="projects['minty_bar_link']" class="has-text-danger">{{ projects['minty_bar'] }}</a></strong>!
+                    </small></small></p>
+
+                  </div>
+
+
+
+
+
+                    <div id="content-page-links" style="display: none;">
+                      <div class="card">
+                        <div class="card-image is-skeleton">
+                          <figure class="image is-4by3">
+                            <img :src="images['madeline_splash']" alt=""/>
+                          </figure>
+                        </div>
+                        <div class="card-content">
+                          <div class="media">
+                            <div class="media-left is-skeleton">
+                              <figure class="image is-48x48">
+                                <img :src="images['rori_avatar']" alt=""/>
+                              </figure>
+                            </div>
+                            <div class="media-content">
+                              <p class="title is-4 is-skeleton">Rori Firefly</p>
+                              <a :href="socials['bluesky']" class="subtitle is-6 has-text-link-light is-skeleton">@rori.minty.news</a>
+                            </div>
+                          </div>
+                      
+                          <div class="content is-skeleton">
+                            Launcher/Main Domain: <a :href="projects['minty_bar_link']" class="has-text-danger">minty.bar</a>
+                            <br>Universe/Lore news: <a :href="socials['bluesky']" class="has-text-link">@rori</a>
+                            <br>Discord chit-chat: <a :href="socials['discord']">@limelight-mint</a>
+                            <br>Partnership/Collab: <a href="mailto:rori@minty.news">rori@minty.news</a>
+                            <hr>
+                            <time datetime="2025-1-1">02:12 AM - 1 Jan 2025</time>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+
+
+                </div>
+                <!-- HERO CONTENT END -->
+              
+
+                <!-- FOOTER START -->
+                <div class="hero-foot">
+                  <nav class="pagination is-flex is-rounded mb-4" role="navigation" aria-label="pagination">
+                    <ul class="pagination-list main-description">
+                      <li><a v-on:click="OpenPage(0)" id="content-page-about-button" class="pagination-link is-skeleton is-current">#about</a></li>
+                      <li><a id="content-page-links-button" v-on:click="OpenPage(1)" class="pagination-link is-skeleton">#links</a></li>
+                    </ul>
+                  </nav>
+                  <small class="has-text-grey-light is-pulled-right"><small>Footage: COGNOSPHERE PTE. LTD.</small></small>
+                </div>
+                <!-- FOOTER END -->
+                 
+              </section>
+              <!-- HERO FULLSCREEN END -->
+
+          <!-- PREVIEW -->
+          <video id="preview-vid-muted" :src="images['preview']" autoplay muted loop></video>
+          <video id="preview-vid" preload="none" :src="images['preview']" loop></video>
+        </div>
+        
+
+        <!-- Import Vue3 app -->
+        <script src="./vue-hydration.js" type="module"></script>
+        
+    </body>
+</html>

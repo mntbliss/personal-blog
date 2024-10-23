@@ -1,24 +1,7 @@
 # personal-blog
 
-## Project setup
-```
-npm install
-```
+My simple site made with a little bit of Vue3 hydration and plain CSS/HTML/JS. Made in 1 night so nothing much to see there.
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+Check out [site itself](bliss.moe).
 
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+> I dont wanna use SSR for this nor the entire framework with build step just cause i dont see the point, it gets the job done and i dont need to buy a VPS for it, simple static hosting is enough.
