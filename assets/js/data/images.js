@@ -11,7 +11,7 @@ export const icons = {
     logo: './assets/images/icons/personal_logo.png',
     news: './assets/images/icons/news.svg',
     projects: './assets/images/icons/projects.svg',
-    bar: './assets/images/icons/cup.svg',
+    bar: './assets/images/icons/tree.png',
     universe: './assets/images/icons/universe.svg',
     letter: './assets/images/icons/letter_jp.svg',
     vscode: './assets/images/icons/vscode.png',

@@ -59,11 +59,19 @@
                             </a>
                           </span>
                           <span class="navbar-item">
-                            <a :href="socials['bluesky']" class="button is-info is-skeleton">
+                            <a :href="socials['bluesky']" class="button is-link is-skeleton">
                               <span class="icon">
                                 <img class="icon-mini mr-2 ml-2" :src="icons['bluesky']" />
                               </span>
-                              <span>BlueSky News</span>
+                              <span>BlueSky</span>
+                            </a>
+                          </span>
+                          <span class="navbar-item">
+                            <a :href="projects['minty_bar_link']" class="button is-danger is-skeleton">
+                              <span class="icon">
+                                <img class="icon-mini mr-2 ml-2" :src="icons['logo']" />
+                              </span>
+                              <span>MintyBar</span>
                             </a>
                           </span>
                         </div>
@@ -105,8 +113,8 @@
                     </p>
                       <hr class="mb-0 mt-4">
                     <p class="is-skeleton"><br><small><small>
-                      Come see my <a v-on:click="OpenPage(2)" class="has-text-warning-light">projects</a> and <strong><a :href="projects['minty_bar_link']" class="has-text-warning-light"> universe</a></strong>,
-                      <br><strong class='has-text-danger'><a :href="projects['minty_bar_link']" class="has-text-danger">Feel hyped?</a></strong> Create profile at <strong><a :href="projects['minty_bar_link']" class="has-text-danger">{{ projects['minty_bar'] }}</a></strong>!
+                      Come see my <a :href="projects['minty_bar_projects']" class="has-text-warning-light">projects</a> and <strong><a :href="projects['minty_bar_universe']" class="has-text-warning-light"> universe</a></strong>,
+                      <br><strong class='has-text-danger'><a :href="projects['minty_bar_news']" class="has-text-danger">Feel hyped?</a></strong> Create profile at <strong><a :href="projects['minty_bar_create']" class="has-text-danger">{{ projects['minty_bar'] }}</a></strong>!
                     </small></small></p>
 
                   </div>
@@ -131,15 +139,15 @@
                             </div>
                             <div class="media-content">
                               <p class="title is-4 is-skeleton">Rori Firefly</p>
-                              <a :href="socials['bluesky']" class="subtitle is-6 has-text-link-light is-skeleton">@rori.minty.news</a>
+                              <a :href="socials['bluesky']" class="subtitle is-6 has-text-link-light is-skeleton">@minty.social</a>
                             </div>
                           </div>
                       
                           <div class="content is-skeleton">
                             Launcher/Main Domain: <a :href="projects['minty_bar_link']" class="has-text-danger">minty.bar</a>
-                            <br>Universe/Lore news: <a :href="socials['bluesky']" class="has-text-link">@rori</a>
-                            <br>Discord chit-chat: <a :href="socials['discord']">@limelight-mint</a>
-                            <br>Partnership/Collab: <a href="mailto:rori@minty.news">rori@minty.news</a>
+                            <br>Universe/Lore news: <a :href="socials['bluesky']" class="has-text-link">@minty.social</a>
+                            <br>Discord Community: <a :href="socials['discord']">@mintybar</a>
+                            <br>Partnership/Collab: <a href="mailto:support@bliss.moe">support@bliss.moe</a></a>
                             <hr>
                             <time datetime="2025-1-1">02:12 AM - 1 Jan 2025</time>
                           </div>
