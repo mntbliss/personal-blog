@@ -1,0 +1,334 @@
+/* ====== BASE ====== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+    --avatar-size: 220px;
+  }
+  body {
+    font-family: "Quicksand", sans-serif;
+    color: #fff;
+    background: rgb(20, 20, 25);
+    overflow-x: hidden;
+  }  
+
+/* ========== Music toggle ========== */
+
+.music-toggle {
+	position: absolute;
+	top: 0.5rem;
+	/* top: calc(220px + 0.5rem); */
+	left: 50%;
+	transform: translate(-230%, 90%) scale(1);
+	width: 48px;
+	height: 48px;
+	border-radius: 50%;
+	background: rgba(84, 124, 255, 0.65);
+	border: 1px solid rgba(101, 98, 255, 0.1);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+    box-shadow: 0px 0px 10px 0px rgb(122, 142, 255);
+	backdrop-filter: blur(10px);
+	cursor: pointer;
+	z-index: 5;
+	transition: all 0.3s ease;
+    transform-origin: center center;
+    opacity: 0;
+    animation: fade 1s 1s forwards;
+}
+  
+.music-toggle img {
+	width: 21px;
+	height: 21px;
+	pointer-events: none;
+	opacity: 0.9;
+}
+  
+.music-toggle:hover {
+    box-shadow: 0px 0px 20px 0px rgb(122, 142, 255);
+	transform: translate(-230%, 90%) scale(140%);
+}
+
+.music-toggle.active {
+	background: linear-gradient(to right, #5562d8, #8f65df);
+}
+
+/* =========== AVATAR ========== */
+:root {
+    --online: rgba(134, 255, 123, 0.9);
+    --idle: rgba(243, 222, 101, 0.9);
+    --dnd: rgba(233, 119, 119, 0.9);
+    --offline: rgba(36, 36, 36, 0.925);
+    --current: var(--online);
+    --additional: rgba(119, 127, 233, 0.548);
+    --additional-on: #43caffa6;
+}
+
+.avatar-holder {
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    justify-items: center;
+}
+
+.is-playing-music {
+    border-radius: 80%;
+    background-color: var(--additional-on);
+}
+  
+.fir-imageover-color {
+    height: 32px;
+    width: 32px;
+    position: absolute;
+    bottom: 0px;
+    right: -8px;
+    background-color: var(--current);
+}
+
+.status-holder {
+    opacity: 0;
+    animation: fade 1s 2s forwards;
+}
+
+.status {
+    border-radius: 50%;
+    transition: background .3s ease-in-out;
+    animation: pulse 2s infinite;
+    background-image: none;
+    position: relative;
+    margin-left: calc(var(--avatar-size) / 1.8);
+    top: calc(((var(--avatar-size) / 3.5) * -1));
+}
+
+.status.online {
+    --current: var(--online);
+    background-color: var(--current);
+}
+
+.status.dnd {
+    --current: var(--dnd);
+    background-color: var(--current);
+}
+
+.status.idle {
+    --current: var(--idle);
+    background-color: var(--current);
+}
+
+.status.offline {
+    --current: var(--offline);
+    animation: none !important;
+    background-color: var(--current);
+    box-shadow: rgb(0 0 0 / 75%) 0px 0px 5px 2px;
+}
+
+/* ====== HERO ====== */
+.hero {
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+}
+
+#bg-video {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  top: 0;
+  left: 0;
+  z-index: 0;
+}
+
+.top-headings-holder {
+    opacity: 0;
+    animation: slide_in_bottom_fade 2s 1s forwards;
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    rgba(10, 0, 25, 0.4),
+    rgba(10, 0, 25, 0.7) 70%,
+    rgb(32, 27, 37)
+  );
+  z-index: 1;
+}
+
+.intro {
+  position: relative;
+  z-index: 2;
+  max-width: 600px;
+  padding: 2rem;
+  animation: fade 2s ease forwards;
+}
+
+.avatar {
+  width: var(--avatar-size);
+  height: var(--avatar-size);
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  margin-bottom: 1rem;
+  box-shadow: 0 0 15px rgba(255,255,255,0.2);
+  border-width: 3px;
+  opacity: 0;
+  animation: fade 1s forwards;
+}
+
+.intro h1 {
+  font-weight: 500;
+  letter-spacing: 1px;
+  margin-bottom: 0.3rem;
+}
+
+.roles {
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 1rem;
+}
+
+.about-glass {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 16px;
+  padding: 1rem 1.5rem;
+  backdrop-filter: blur(10px);
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: rgba(255,255,255,0.9);
+  max-width: 400px;
+  margin: 0 auto;
+  opacity: 0;
+  animation: slide_in_bottom_fade 2.5s 1s forwards;
+}
+
+
+/* ========= Bubbles with Images ========== */
+.bubbles {
+	display: flex;
+	gap: 1.5rem;
+	margin: 3rem;
+
+	justify-content: center;
+	opacity: 0;
+	animation: slide_in_bottom_fade 3s 1s forwards;
+}
+
+.bubble {
+	width: 60px;
+	height: 60px;
+	border-radius: 25%;
+	overflow: hidden;
+	background: rgba(14, 14, 14, 0.274);
+	backdrop-filter: blur(10px);
+	transition: transform 0.3s ease;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	box-shadow: 0 0 8px rgba(15, 15, 15, 0.2);
+}
+
+.bubble img {
+	width: 80%;
+	height: 80%;
+	object-fit: cover;
+	border-radius: 20%;
+	transition: transform 0.3s ease;
+    pointer-events: none;
+}
+
+/* ====== PROJECTS ====== */
+.projects {
+  background: linear-gradient(to bottom, rgb(32, 27, 37), rgb(15, 15, 20));
+  padding: 5rem 2rem;
+  text-align: center;
+}
+
+.projects h2 {
+  font-size: 1.8rem;
+  margin-bottom: 3rem;
+  font-weight: 500;
+}
+
+.masonry {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 2rem;
+  justify-items: center;
+}
+
+.link {
+    color:#8f65df;
+}
+
+.card {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  overflow: hidden;
+  backdrop-filter: blur(8px);
+  transition: all 0.3s ease;
+  max-width: 420px;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.15);
+}
+
+.card img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+}
+
+.card video {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+  }
+
+.card .info {
+  padding: 1rem;
+}
+
+.card .info h3 {
+  margin-bottom: 0.4rem;
+  font-weight: 500;
+}
+
+.card .info p {
+  font-size: 0.9rem;
+  color: rgba(255,255,255,0.8);
+}
+
+/* ====== FOOTER ====== */
+footer {
+  text-align: center;
+  padding: 2rem 1rem;
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.6);
+  background: rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(8px);
+}
+
+footer a {
+  color: #b58aff;
+  text-decoration: none;
+}
+
+/* ====== RESPONSIVE ====== */
+@media (max-width: 600px) {
+  .intro { padding: 1.5rem; }
+  .about-glass { font-size: 0.85rem; }
+  .projects { padding: 3rem 1rem; }
+}
+  

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>🍃 Minty Portfolio</title>
+  <link rel="stylesheet" href="assets/css/main.css" />
+  <link rel="stylesheet" href="assets/css/animations.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <section class="hero">
+    <video autoplay muted loop playsinline id="bg-video">
+      <source src="./assets/videos/back.mp4" type="video/mp4">
+    </video>
+    <div class="overlay"></div>
+
+    <div class="intro">
+        <div class="avatar-holder">
+            <img src="./assets/images/avatar.jpg" class="avatar pulsing" />
+            <div class="status-holder">
+                <div class="fir-imageover-color status" id="status-dot"></div>
+            </div>
+            <button class="music-toggle" id="music-toggle">
+                <img src="./assets/images/music.svg" />
+            </button>
+        </div>
+        <div class="top-headings-holder">
+            <h1 style="margin-top: -32px;">mntbliss</h1>
+            <p class="roles">I code a little 🕹️ · I draw a little 🎨 · I do music a little 🎹</p>
+        </div>
+        
+        <div class="about-glass">
+            <p>yoo bro who got u smiling like that</p>
+        </div>
+        
+        <div class="bubbles">
+            <a href="mailto:dev@minty.bar"><div class="bubble anim-element big-scale anim-element fade-in"><img src="./assets/images/email.svg" alt="" /></div></a>
+            <a href="http://discord.gg/mintybar"><div class="bubble anim-element big-scale anim-element fade-in"><img src="./assets/images/discord.svg" alt="" /></div></a>
+            <a href="https://t.me/eepyloser"><div class="bubble anim-element big-scale anim-element fade-in"><img src="./assets/images/telegram.svg" alt="" /></div></a>
+            <a href="https://github.com/limelight-mint"><div class="bubble anim-element big-scale anim-element fade-in"><img src="./assets/images/github.svg" alt="" /></div></a>
+        </div>
+    </div>
+  </section>
+
+  <section class="projects">
+    <!-- <h2>Projects:</h2> -->
+    <div class="masonry">
+
+      <div class="card">
+        <video muted autoplay playsinline loop src="./assets/videos/projects/hattoribattleclash.mp4" ></video>
+        <div class="info">
+          <h3>Hattori: Battle Clash</h3>
+          <p>Online mobile PvP with 3D MMORPG battler mechanics. Craft and throw shurikens, harpoon players, loot the regions, customize your own shape of shurikens and ninja outfits.</p>
+        </div>
+      </div>
+      <div class="card">
+        <video muted autoplay playsinline loop src="./assets/videos/projects/hattorip2e.mp4" ></video>
+        <div class="info">
+          <h3>Hattori: Play2Earn App</h3>
+          <p>Telegram Application to track your progress in game, participate in events, and competing with other players for rewards and tokens.</p>
+        </div>
+      </div>
+      <div class="card">
+        <video muted autoplay playsinline loop src="./assets/videos/projects/funkymonkeys.mp4" ></video>
+        <div class="info">
+          <h3>Funky Monkeys</h3>
+          <p>Online PvP match-3 game integrated in browser (WebGL) and Telegram Web App with all the benefits of telegram (stars, TON bets to fight with friends, etc.)</p>
+        </div>
+      </div>
+      <div class="card">
+        <video muted autoplay playsinline loop src="./assets/videos/projects/tsuchushop.mp4" ></video>
+        <div class="info">
+          <h3>@tsuchu Shop</h3>
+          <p>Art website of an artist (@tsuchu) to place orders and receive order details in all social media DMs directly.</p>
+        </div>
+      </div>
+      <div class="card">
+        <img src="./assets/images/projects/eremite.gif" style="object-fit: contain;" ></video>
+        <div class="info">
+          <h3>Discord Genshin Bot</h3>
+          <p>Bot that can gift Welkin Moon (yes, in-game*), pull wishes with custom characters, sacrifice waifus for Primogems, do !daily, !travel across Teyvat and dont forget about Dori at the !shop. <a class="link" href="https://github.com/limelight-mint/Eremite">Open Sourced.</a> | <a class="link" href="https://mentally-stable.gitbook.io/eremite/">Docs</a></p>
+        </div>
+      </div>
+      <div class="card">
+        <video muted autoplay playsinline loop src="./assets/videos/projects/hellokittygoodnight.mp4" ></video>
+        <div class="info">
+          <h3>Hello Kitty: Good Night</h3>
+          <p>Educational game for toddlers with Hello Kitty and friends.</p>
+        </div>
+      </div>
+      <div class="card">
+        <video muted autoplay playsinline loop src="./assets/videos/projects/gitlabbot.mp4" style="object-fit: contain;" ></video>
+        <div class="info">
+          <h3>Discord Gitlab Bot</h3>
+          <p>Bot that pings and invites to thread people from Gitlab. Creates threads for PR, merges, comments, etc. This way you can check opened branches and comments from your discord right away, even without corporative VPN. <a class="link" href="https://github.com/limelight-mint/Git-Discord-Webhook-Helper">Open Sourced.</a></p>
+        </div>
+      </div>
+      <div class="card">
+        <video muted autoplay playsinline loop src="./assets/videos/projects/kidecatsgoodnight.mp4" ></video>
+        <div class="info">
+          <h3>Kid-e-Cats: Bedtime Stories</h3>
+          <p>Educational game for toddlers with Kid-e-Cats characters.</p>
+        </div>
+      </div>
+  </section>
+
+  <script src="./assets/js/main.js" type="module"></script>
+  <script src="./assets/js/helpers/discord-helper.js" type="module"></script>
+</body>
+</html>
