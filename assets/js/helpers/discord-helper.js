@@ -33,7 +33,6 @@ export default class DiscordHelper {
     IsListeningToSpotify() { return !isNullOrEmpty(this.data['spotify']); }
 
     InitializeDiscord() {
-        console.log('InitializeDiscord')
         document.getElementById('status-dot').classList.add(this.GetDiscordStatus());
     }
 }

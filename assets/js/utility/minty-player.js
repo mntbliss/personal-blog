@@ -88,7 +88,7 @@ export default class MintyPlayer {
           this.Mute();
         }
   
-        console.log(`🌿 Player is now ${this.player.muted || this.player.paused ? 'muted' : 'playing with volume'}`);
+        // console.log(`🌿 Player is now ${this.player.muted || this.player.paused ? 'muted' : 'playing with volume'}`);
       }
   
       IsPlaying() { 

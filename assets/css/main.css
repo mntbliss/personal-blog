@@ -215,16 +215,20 @@
 .bubbles {
 	display: flex;
 	gap: 1.5rem;
-	margin: 3rem;
+	margin: 1.5rem;
 
 	justify-content: center;
 	opacity: 0;
 	animation: slide_in_bottom_fade 3s 1s forwards;
 }
 
+.bubble-inside {
+  padding: 2.5px;
+}
+
 .bubble {
-	width: 60px;
-	height: 60px;
+	width: 40px;
+	height: 40px;
 	border-radius: 25%;
 	overflow: hidden;
 	background: rgba(14, 14, 14, 0.274);
