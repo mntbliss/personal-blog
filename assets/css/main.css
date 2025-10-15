@@ -5,7 +5,14 @@
     box-sizing: border-box;
 
     --avatar-size: 220px;
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
   }
+  
+*::-webkit-scrollbar {
+  display: none;
+}
+
   body {
     font-family: "Quicksand", sans-serif;
     color: #fff;
@@ -124,6 +131,13 @@
     box-shadow: rgb(0 0 0 / 75%) 0px 0px 5px 2px;
 }
 
+.is-32x32 {
+  width: 32px;
+  height: 32px;
+  max-width: 32px;
+  max-height: 32px;
+}
+
 /* ====== HERO ====== */
 .hero {
   position: relative;
@@ -135,6 +149,24 @@
   flex-direction: column;
   text-align: center;
 }
+
+.scroll-hint {
+  position: absolute;
+  bottom: 35px;
+  color: #6582df;
+  width: 100%;
+  text-align: center;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  opacity: 0;
+  animation: fade 3s forwards, float 2s ease-in-out infinite 2s;
+}
+
+.scroll-hint.icon {
+  bottom: 0px;
+  animation: fade 3s forwards, float 2s ease-in-out infinite 1.8s;
+}
+
 
 #bg-video {
   position: absolute;
