@@ -97,6 +97,9 @@
 .status-holder {
     opacity: 0;
     animation: fade 1s 2s forwards;
+    align-content: center;
+    justify-content: center;
+    display: flex;
 }
 
 .status {
