@@ -5,22 +5,53 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>🍃 Minty Portfolio</title>
   <link rel="stylesheet" href="assets/css/main.css" />
+  <link rel="stylesheet" href="assets/css/utility.css" />
   <link rel="stylesheet" href="assets/css/animations.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
 </head>
 <body>
-  <section class="hero">
-    <video autoplay muted loop playsinline id="bg-video">
+  <section class="pc">
+    <img src="./assets/images/back/back_1.jpg" style="filter:opacity(10%)" class="bg">
+    <video autoplay muted loop playsinline id="bg-video" class="bg">
       <source src="./assets/videos/back.mp4" type="video/mp4">
     </video>
     <div class="overlay">
-      <div class="scroll-hint">SCROLL DOWN TO PROJECTS</div>
-      <div class="scroll-hint icon"><img src="./assets/images/arrow.svg" class="is-32x32" /></div>
+      <div class="top-panel">
+        <!-- Start menu -->
+        <div class="top-item left-corner-item is-desktop-only">
+          <!-- <img class="is-24x24" src="./assets/images/rori_avatar.png" /> -->
+          <input type="radio" class="checkbox m-1 is-hoverable anim-element medium-scale" id="workspace_1" name="workspace" value=1 checked />
+          <input type="radio" class="checkbox m-1 is-hoverable anim-element medium-scale" id="workspace_2" name="workspace" value=2 />
+          <input type="radio" class="checkbox m-1 is-hoverable anim-element medium-scale" id="workspace_3" name="workspace" value=3 />
+          <p class="navigator-directory ml-3">root@mntbliss ~ #</p>
+        </div>
+        
+        <!-- Clock menu -->
+        <div class="top-item">
+          <p class="top-text" id="clock-date"></p>
+        </div>
+        
+        <!-- Power menu -->
+        <div class="top-item right-corner-item is-desktop-only">
+          <img class="is-20x20 mr-2 is-flex" src="./assets/images/signal.svg" />
+          <p class="is-hoverable anim-element medium-scale top-text mr-2"><img class="is-20x20 mr-1" src="./assets/images/volume-down.svg" />0%</p>
+          <img class="is-hoverable anim-element medium-scale is-20x20 mr-2 is-flex" src="./assets/images/music-icon.svg" />
+          <img class="is-hoverable anim-element medium-scale is-20x20 mr-1" src="./assets/images/messenger.svg" />
+          <img class="is-hoverable anim-element medium-scale is-24x24 ml-5" src="./assets/images/power.svg" />
+        </div>
+      </div>
+      <!-- <div class="scroll-hint">SCROLL DOWN TO PROJECTS</div>
+      <div class="scroll-hint icon"><img src="./assets/images/arrow.svg" class="is-32x32" /></div> -->
+
+
+      <!-- <div class="is-flex is-512x512">
+        <img src="./assets/images/avatar.jpg" class="avatar pulsing" />
+      </div> -->
     </div>
 
-    <div class="intro">
+    <!-- <div class="intro">
         <div class="avatar-holder">
             <img src="./assets/images/avatar.jpg" class="avatar pulsing" />
             <div class="status-holder">
@@ -44,11 +75,10 @@
             <a href="https://t.me/eepyloser"><div class="bubble anim-element big-scale anim-element fade-in"><img class="bubble-inside" src="./assets/images/telegram.svg" alt="" /></div></a>
             <a href="https://github.com/limelight-mint"><div class="bubble anim-element big-scale anim-element fade-in"><img class="bubble-inside" src="./assets/images/github.svg" alt="" /></div></a>
         </div>
-    </div>
+    </div> -->
   </section>
-
+<!-- 
   <section class="projects">
-    <!-- <h2>Projects:</h2> -->
     <div class="masonry">
 
       <div class="card">
@@ -107,7 +137,7 @@
           <p>Educational game for toddlers with Kid-e-Cats characters.</p>
         </div>
       </div>
-  </section>
+  </section> -->
 
   <script src="./assets/js/main.js" type="module"></script>
   <script src="./assets/js/helpers/discord-helper.js" type="module"></script>
