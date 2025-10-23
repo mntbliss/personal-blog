@@ -28,3 +28,8 @@ export const projects = {
     minty_bar_news: 'https://minty.bar/news',
     minty_bar_link: 'https://minty.bar',
 }
+
+export const peekStyle = [
+    'font-size: 12px;',
+    'color: #ff534a;'
+].join(' ');

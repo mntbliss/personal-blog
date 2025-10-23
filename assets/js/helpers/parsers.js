@@ -1,3 +1,5 @@
+import { peekStyle } from "../data/about.js";
+import { consoleBase } from "../data/images.js";
 
 export function isNullOrEmpty(anything) {
     if(anything == undefined || anything == null) return true;
@@ -8,3 +10,35 @@ export function isNullOrEmpty(anything) {
       || (type == "number" && anything < Number.MIN_SAFE_INTEGER));
   }
 
+export function SetCurrentTime() {
+    const date = new Date();
+    
+    const day = String(date.getDate()).padStart(2, '0');
+    const month = String(date.getMonth() + 1).padStart(2, '0');
+    const hours = String(date.getHours()).padStart(2, '0');
+    const minutes = String(date.getMinutes()).padStart(2, '0');
+    const seconds = String(date.getSeconds()).padStart(2, '0');
+
+    document.getElementById('clock-date').innerText = `${date.getFullYear()}/${month}/${day} | ${hours}:${minutes}:${seconds}`;
+}
+
+
+export function Peek(url, size = 100, aftertext = '') {
+  const image = new Image();
+  image.src = url;
+  image.onload = function() {
+      const imageStyle = [
+          'font-size: 1px;',
+          'padding: ' + this.height/100*size + 'px ' + this.width/100*size + 'px;',
+          // 'background-size: ' + this.height/100*size + 'px ' + this.width/100*size + 'px;',
+          'background: url('+ url +') no-repeat;',
+          'background-position: center;',
+          'background-size: cover;',
+          'width: 100%;',
+          'height: 100%;'
+      ].join(' ');
+  
+     console.log('%c ', imageStyle);
+     if(!isNullOrEmpty(aftertext)) console.log(`%c${aftertext}`, peekStyle);
+  };
+};
