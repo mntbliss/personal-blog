@@ -1,4 +1,4 @@
-import { consoleBase, fufu } from "./data/images.js";
+import { consoleBase } from "./data/images.js";
 import DiscordHelper from "./helpers/discord-helper.js";
 import { isNullOrEmpty, Peek, SetCurrentTime } from "./helpers/parsers.js";
 import Discord from "./utility/discord-client-parser.js";

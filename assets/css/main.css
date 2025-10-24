@@ -7,6 +7,35 @@
     -ms-overflow-style: none;  /* IE and Edge */
     scrollbar-width: none;  /* Firefox */
   }
+
+/*** Works on common browsers ***/
+::selection {
+  background-color: var(--selection);
+  color: var(--selection-text);
+}
+
+/*** Mozilla based browsers ***/
+::-moz-selection {
+  background-color: var(--selection);
+  color: var(--selection-text);
+}
+
+/***For Other Browsers ***/
+::-o-selection {
+  background-color: var(--selection);
+  color: var(--selection-text);
+}
+
+::-ms-selection {
+  background-color: var(--selection);
+  color: var(--selection-text);
+}
+
+/*** For Webkit ***/
+::-webkit-selection {
+  background-color: var(--selection);
+  color: var(--selection-text);
+}
   
 *::-webkit-scrollbar {
   display: none;
@@ -31,6 +60,8 @@
     --current: var(--online);
     --additional: rgba(119, 127, 233, 0.548);
     --additional-on: #43caffa6;
+    --selection: #5627ff;
+    --selection-text: #48ff00;
 
     --main-background: #000000;
     --sepia-percentage: 40%;
