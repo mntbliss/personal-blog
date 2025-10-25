@@ -4,8 +4,16 @@
     padding: 0;
     box-sizing: border-box;
 
+    /* removing scrollbar */
     -ms-overflow-style: none;  /* IE and Edge */
     scrollbar-width: none;  /* Firefox */
+    
+    /* removing range defaults */
+    -webkit-appearance: none; /* Safari, Chrome */
+    -moz-appearance: none;    /* Firefox */
+    appearance: none;         /* Standard */
+    background: transparent;
+    cursor: pointer;
   }
 
 /*** Works on common browsers ***/
@@ -37,21 +45,33 @@
   color: var(--selection-text);
 }
   
+
+/* removing scrollbar */
 *::-webkit-scrollbar {
   display: none;
 }
 
-  body {
-    font-family: "Roboto Mono", monospace;
-    font-optical-sizing: auto;
-    font-weight: 1000;
-    font-size: var(--default-font-size);
-    color: var(--accent-color);
-    background: rgb(0, 0, 0);
-    overflow-x: hidden;
-  }  
 
-/* =========== AVATAR ========== */
+::-moz-range-thumb {
+  background-color: var(--selection-text);
+}
+
+::-ms-thumb  {
+  background-color: var(--selection-text);
+}
+
+
+body {
+  font-family: "Roboto Mono", monospace;
+  font-optical-sizing: auto;
+  font-weight: 1000;
+  font-size: var(--default-font-size);
+  color: var(--accent-color);
+  background: rgb(0, 0, 0);
+  overflow-x: hidden;
+}  
+
+/* =========== Generic ========== */
 :root {
     --online: rgba(134, 255, 123, 0.9);
     --idle: rgba(243, 222, 101, 0.9);
@@ -62,6 +82,7 @@
     --additional-on: #43caffa6;
     --selection: #5627ff;
     --selection-text: #48ff00;
+    --error-text: #ff4444;
 
     --main-background: #000000;
     --sepia-percentage: 40%;
@@ -85,120 +106,6 @@
     --default-font-size: 18px;
 }
 
-/* ====== PC BACK ====== */
-.pc {
-  position: absolute;
-  height: 100%;
-  overflow: hidden;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  text-align: center;
-  filter: sepia(var(--sepia-percentage));
-
-  width: 80%;
-  align-self: center;
-  justify-self: center;
-  border-radius: var(--old-pc-borders);
-
-  inset: 0;
-  background: linear-gradient(
-    rgba(10, 0, 25, 0.4),
-    rgba(10, 0, 25, 0.5) 70%,
-    rgb(32, 27, 37)
-  );
-
-  z-index: -1;
-}
-
-
-.bg {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  top: 0;
-  left: 0;
-  z-index: 0;
-  pointer-events: none;
-}
-
-.overlay {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  display: block;
-  align-self: center;
-  background: linear-gradient(
-    rgba(25, 16, 0, 0.4),
-    rgba(25, 19, 0, 0.7) 70%,
-    rgb(37, 32, 27)
-  );
-  z-index: 100;
-  
-  &::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background: repeating-linear-gradient(
-      transparent 18px,
-      var(--burned-screen-lines-color) 20px
-    );
-    pointer-events: none;
-    
-  }
-}
-
-.top-panel {
-  display: flex;
-  align-items: center;
-  align-content: center;
-  justify-content: center;
-  justify-items: center;
-  width: 100%;
-  height: 40px;
-  border: #ffffff;
-  background-color: var(--color-panel);
-  padding-left: var(--top-panel-padding);
-  padding-right: var(--top-panel-padding);
-  /* This is for the Macintosh Vibe but im not feelin it idk */
-  /* border-color: #1f1f1f; */
-  /* border-radius: 20px; */
-  /* margin-left: 10px; */
-  /* margin-right: 10px; */
-  /* margin-top:5px; */
-}
-
-.top-panel .top-item {
-  display: flex;
-  width: 100%;
-  justify-content: center;
-  justify-items: center;
-  align-items: center;
-  align-content: center;
-  height: 40px;
-}
-
-.top-panel .top-item.left-corner-item {
-  justify-content: left;
-  align-content: flex-start;
-}
-
-.top-panel .top-item.right-corner-item {
-  justify-content: right;
-  align-content: flex-end;
-}
-
-.top-panel .top-text {
-  display: flex;
-  align-items: center;
-  align-content: center;
-}
 
 .checkbox {
   border: 2px solid var(--accent-color) !important;
@@ -241,4 +148,233 @@
 .button:hover {
   background: var(--button-hover-background);
   /* color: var(--accent-secondary-color-darker); */
+}
+
+/* ====== PC BACK ====== */
+.pc {
+  position: absolute;
+  height: 100%;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  filter: sepia(var(--sepia-percentage));
+
+  width: 80%;
+  align-self: center;
+  justify-self: center;
+  border-radius: var(--old-pc-borders);
+
+  inset: 0;
+  background: linear-gradient(
+    rgba(10, 0, 25, 0.4),
+    rgba(10, 0, 25, 0.5) 70%,
+    rgb(32, 27, 37)
+  );
+
+  z-index: -1;
+}
+
+
+.bg {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  top: 0;
+  left: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+
+#boot-background {
+  object-fit: fill;
+  z-index: 101;
+}
+
+#pc-background {
+  width: 100%;
+  height: 100%;
+}
+
+.terminal-logo {
+  position: absolute;
+  right: 12vw;
+  top: 18vh;
+}
+
+.burntout-layer {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-self: center;
+  background: linear-gradient(
+    rgba(25, 16, 0, 0.4),
+    rgba(25, 19, 0, 0.507) 70%,
+    rgba(37, 32, 27, 0.7)
+  );
+  z-index: 100;
+  pointer-events: none;
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-self: center;
+  
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: repeating-linear-gradient(
+      transparent 18px,
+      var(--burned-screen-lines-color) 20px
+    );
+    pointer-events: none;
+    
+  }
+}
+
+.startup-terminal {
+  position: fixed;
+  background-color: rgba(0, 0, 0, 0.432);
+  width: 100%;
+  height: 100%;
+  padding-top: 16vh;
+  padding-left: 12vw;
+  padding-right: 12vw;
+  padding-bottom: 12vh;
+  align-items: start;
+  justify-items: start;
+  align-content: start;
+  justify-content: start;
+  opacity: 0;
+  animation: fade 0.3s forwards;
+
+  p {
+    color: rgb(255, 211, 129);
+    animation: fade 0.3s forwards;
+  }
+
+  .footer {
+    position: absolute;
+    bottom: 15vh;
+    left: 10.5vw;
+    justify-items: start;
+    align-items: start;
+    padding: 20px;
+  }
+
+  .footer p {
+    color: #727272 !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .pc {
+    width: 100%;
+  }
+
+  .startup-terminal {
+    padding: 40px !important;
+
+    p {
+      font-size: small;
+    }
+  }
+}
+
+/* ====== Top bar ====== */
+
+.top-panel {
+  display: flex;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  justify-items: center;
+  width: 100%;
+  height: 40px;
+  border: #ffffff;
+  background-color: var(--color-panel);
+  padding-left: var(--top-panel-padding);
+  padding-right: var(--top-panel-padding);
+  /* This is for the Macintosh Vibe but im not feelin it idk */
+  /* border-color: #1f1f1f; */
+  /* border-radius: 20px; */
+  /* margin-left: 10px; */
+  /* margin-right: 10px; */
+  /* margin-top:5px; */
+
+  .top-item {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    justify-items: center;
+    align-items: center;
+    align-content: center;
+    height: 40px;
+  }
+
+  .top-text {
+    display: flex;
+    align-items: center;
+    align-content: center;
+  }
+}
+
+.top-item.left-corner-item {
+  justify-content: left;
+  align-content: flex-start;
+}
+
+.top-item.right-corner-item {
+  justify-content: right;
+  align-content: flex-end;
+}
+
+.volume-scroll-topbar {
+  display: flex;
+  position: absolute;
+  top: 3rem;
+  right: 5rem;
+  /* border: 4px solid var(--selection); */
+  border-radius: 20px;
+  padding: 5px;
+  background-color: var(--color-panel);
+  width: 8rem;
+  height: 2rem;
+  align-items: center;
+  justify-items: center;
+  align-content: center;
+  justify-content: center;
+  opacity: 0;
+  animation: fade 0.5s forwards;
+
+  .scroll-meter {
+    position: absolute;
+    pointer-events: none;
+    border: 3px solid var(--selection);
+    border-radius: 50px;
+    color: var(--selection-text);
+    width: 80%;
+  }
+
+  input {
+    color: var(--accent-color);
+    accent-color: var(--selection-text);
+    width: 80%;
+    height: 80%;
+    display: flex;
+    z-index: 1;
+  }
 }

@@ -72,7 +72,17 @@
 
 .anim-element.fade-in {
     opacity: 0;
-    animation: fade 1s 1s alternate forwards;
+    animation: fade 1s alternate forwards;
+}
+
+.anim-element.fade-out {
+    opacity: 1;
+    animation: fade-out 1s alternate forwards !important;
+}
+
+.anim-element.scale-in {
+    scale: 1;
+    animation: scale-in 3s alternate forwards !important;
 }
 
 @keyframes slide_in_right_by_width {
@@ -241,12 +251,32 @@
     }
   }
 
+  
+@keyframes scale-in {
+    0% {
+        scale: 1;
+    }
+    100% {
+        scale: 2;
+    }
+}
+
+
 @keyframes fade {
     0% {
         opacity: 0;
     }
     100% {
-        opacity: 100;
+        opacity: 1;
+    }
+}
+
+@keyframes fade-out {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
     }
 }
 

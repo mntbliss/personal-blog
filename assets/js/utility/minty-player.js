@@ -7,6 +7,7 @@ export default class MintyPlayer {
   player = {};
   mutedPlayer = {};
   playButton = {};
+  volume = 0.1;
 
   state = false;
 
@@ -32,7 +33,7 @@ export default class MintyPlayer {
   }
 
   Unmute() {
-    this.player.volume = 0.1; //bruh whoever sets it to 1 by default is a demon ngl 💀
+    this.player.volume = this.volume; //bruh whoever sets it to 1 by default is a demon ngl 💀
     this.player.muted = false;
     this.playButton.classList.add('is-playing-music');
   }
@@ -76,23 +77,21 @@ export default class MintyPlayer {
     };
 
     PlaySolo() {
-        if(isNullOrEmpty(this.player)) {
-          console.log('🍂 Player was null on play');
-          return;
-        }
-  
-        if(this.player.muted) {
-          this.Unmute();
-        }
-        else {
-          this.Mute();
-        }
-  
-        // console.log(`🌿 Player is now ${this.player.muted || this.player.paused ? 'muted' : 'playing with volume'}`);
+      if(isNullOrEmpty(this.player)) {
+        console.log('🍂 Player was null on play');
+        return;
       }
-  
-      IsPlaying() { 
-        if(isNullOrEmpty(this.player)) return false;
-        return this.mutedPlayer.paused;
-      };
+      
+      this.player.volume = this.volume;
+      this.player.muted = false;
+      this.player.play();
+      // if(this.player.muted) {
+      //   this.Unmute();
+      // }
+      // else {
+      //   this.Mute();
+      // }
+
+      // console.log(`🌿 Player is now ${this.player.muted || this.player.paused ? 'muted' : 'playing with volume'}`);
+    }
 }

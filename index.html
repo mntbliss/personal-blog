@@ -19,12 +19,44 @@
 </head>
 <body>
   <section class="pc">
-    <img src="./assets/images/back/back_1.jpg" style="filter:opacity(10%)" class="bg">
-    <video autoplay muted loop playsinline id="bg-video" class="bg">
+    <span class="burntout-layer"></span>
+    <div id="pc-background" class="is-desktop-only">
+      <img src="./assets/images/back/back_overlay.png" class="bg" style="object-fit: fill; z-index: 2;">
+      <img src="./assets/images/back/back_1.jpg" class="bg" style="object-fit: fill;">
+      <img src="./assets/images/icons/bios-energy.png" class="terminal-logo">
+    </div>
+    <img id="terminal-background" src="./assets/images/back/back_2.jpg" style="filter:opacity(25%)" class="bg is-hidden">
+    <video autoplay muted loop playsinline id="boot-background" class="bg anim-element fade-in is-hidden">
+      <source src="./assets/videos/boot.mp4" type="video/mp4">
+    </video>
+    <video autoplay muted loop playsinline id="bg-video" class="bg is-hidden">
       <source src="./assets/videos/back.mp4" type="video/mp4">
     </video>
     <div class="overlay">
-      <div class="top-panel">
+      <div id="terminal" class="startup-terminal is-hidden">
+        <p>Minty Medallion BIOS v6.0, Hewwo Fwiends Whu Weading Whis</p>
+        <p>Copyright (C) 1904-2025, Limelight Mint Software, Inc.</p>
+
+        <p class="mt-5 is-desktop-only">ASUS P4T ACPI BIOS Revision 1003</p>
+        
+        <p class="mt-5">Intel(R) Pentium(R) 4 1759 Mhz Processor</p>
+        <p class="is-desktop-only">RDRAM Clock : 440 Mhz</p>
+        <p class="is-desktop-only">Memory Test : 262144K OK</p>
+        
+        <p name="terminal-startup-text" class="mt-3 is-hidden">Award Plug and Play BIOS Extension v1.0A</p>
+        <p name="terminal-startup-text" class="is-hidden">Intializing eepywitches_devices... <span name="terminal-startup-text" class="is-hidden is-selection-text">OK</span></p>
+        <p name="terminal-startup-text" class="is-hidden">Intializing eepywitches_drvr... <span name="terminal-startup-text" class="is-hidden is-selection-text">OK</span></p>
+        <p name="terminal-startup-text" class="is-hidden">Intializing ew_modlauncher_v1.6a... <span name="terminal-startup-text" class="is-hidden is-selection-text">OK</span></p>
+        <p name="terminal-startup-text" class="is-hidden">Intializing 1Я0Я-kawaii-assistant... <span name="terminal-startup-text" class="is-hidden is-error-text">NULL<br />NullReferenceException_alloc->0x72307231...</span></p>
+        <p name="terminal-startup-text" class="mt-6 is-hidden">Booting eepywitches OS v0.3-image... <span name="terminal-startup-text" class="is-hidden is-selection-text">OK</span></p>
+        
+        <p name="terminal-startup-text" class="mt-1 is-hidden" style="color: rgb(160, 160, 160);">P<span class="is-error-text">Я</span>ess any key t<span class="is-error-text">0</span> c<span class="is-error-text">0</span>nt<span class="is-error-text">1</span>nue...</p>
+        <div class="footer">
+          <p>Press <span class="is-selection-text">LEFT CLICK</span> to <span class="is-selection-text">SKIP SETUP</span></p>
+          <p>16/01/2000-1050-00</p>
+        </div>
+      </div>
+      <div id="top-panel" class="top-panel is-hidden">
         <!-- Start menu -->
         <div class="top-item left-corner-item is-desktop-only">
           <input type="radio" class="checkbox m-1 is-hoverable anim-element medium-scale" id="workspace_1" name="workspace" value=1 checked />
@@ -41,8 +73,15 @@
         <!-- Power menu -->
         <div class="top-item right-corner-item is-desktop-only">
           <img class="is-20x20 mr-2 is-flex" src="./assets/images/icons/signal.svg" />
-          <p class="is-hoverable anim-element medium-scale top-text mr-2"><img class="is-20x20 mr-1" src="./assets/images/icons/volume-down.svg" />0%</p>
+          <span id="volume-button-topbar" class="is-hoverable anim-element medium-scale top-text">
+            <img id="volume-button-image-topbar" class="is-20x20 mr-1" src="./assets/images/icons/volume-down.svg" />
+            <p id="volume-button-text-topbar" class="top-text mr-2">0%</p>
+          </span>
           <img class="is-hoverable anim-element medium-scale is-20x20 mr-2 is-flex" src="./assets/images/icons/music-icon.svg" />
+          <span id="volume-scroll-topbar" class="volume-scroll-topbar is-hidden">
+            <span class="scroll-meter"></span>
+            <input type="range" id="volume-meter" value="0">
+          </span>
           <img class="is-hoverable anim-element medium-scale is-20x20 mr-1" src="./assets/images/icons/messenger.svg" />
           <img class="is-hoverable anim-element medium-scale is-24x24 ml-5" src="./assets/images/icons/power.svg" />
         </div>

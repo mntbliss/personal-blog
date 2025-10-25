@@ -33,3 +33,5 @@ export const peekStyle = [
     'font-size: 12px;',
     'color: #ff534a;'
 ].join(' ');
+
+export const antiEarRapeCoefficient = 5;
