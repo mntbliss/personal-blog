@@ -20,4 +20,6 @@ export const icons = {
     bluesky: './assets/images/icons/bluesky.svg',
     music: './assets/images/icons/music.svg',
     github: './assets/images/icons/github.svg',
+    discord: './assets/images/icons/discord.svg',
+    unknown_app: './assets/images/teto.gif',
 }

@@ -44,6 +44,15 @@
     transform-origin: center center;
     opacity: 0;
     animation: fade 1s 1s forwards;
+	outline: none;
+	-webkit-tap-highlight-color: transparent;
+	user-select: none;
+}
+.music-toggle:focus {
+	outline: none;
+}
+.music-toggle:focus-visible {
+	outline: none;
 }
   
 .music-toggle img {
@@ -105,11 +114,16 @@
 .status {
     border-radius: 50%;
     transition: background .3s ease-in-out;
-    animation: pulse 2s infinite;
     background-image: none;
     position: relative;
     margin-left: calc(var(--avatar-size) / 1.8);
     top: calc(((var(--avatar-size) / 3.5) * -1));
+}
+
+.status.online,
+.status.idle,
+.status.dnd {
+    animation: pulse 2s infinite;
 }
 
 .status.online {
@@ -129,7 +143,6 @@
 
 .status.offline {
     --current: var(--offline);
-    animation: none !important;
     background-color: var(--current);
     box-shadow: rgb(0 0 0 / 75%) 0px 0px 5px 2px;
 }
@@ -234,7 +247,7 @@
   background: rgba(255, 255, 255, 0.1);
   border: 1px solid rgba(255, 255, 255, 0.15);
   border-radius: 16px;
-  padding: 1rem 1.5rem;
+  padding: .5rem .5rem;
   backdrop-filter: blur(10px);
   font-size: 0.95rem;
   line-height: 1.5;
@@ -243,6 +256,74 @@
   margin: 0 auto;
   opacity: 0;
   animation: slide_in_bottom_fade 2.5s 1s forwards;
+}
+
+.about-glass-activity {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.about-glass-activity-img {
+  width: 80px;
+  height: 80px;
+  border-radius: 10px;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.about-glass-activity-body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  min-width: 0;
+  flex: 1;
+}
+
+.about-glass-activity-text {
+  line-height: 1.3;
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+
+.about-glass-activity-subtitle {
+  font-size: 0.8em;
+  opacity: 0.85;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  line-clamp: 2;
+  word-break: break-word;
+}
+
+.about-glass-activity-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.9);
+  flex-shrink: 0;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.about-glass-activity-link:hover {
+  background: rgba(255, 255, 255, 0.2);
+  color: #fff;
+}
+
+.about-glass-activity-link--no-link {
+  opacity: 0.5;
+  cursor: default;
+  pointer-events: none;
+}
+
+.about-glass-link-icon {
+  width: 18px;
+  height: 18px;
 }
 
 
