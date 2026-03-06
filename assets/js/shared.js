@@ -1,20 +1,21 @@
 import { antiEarRapeCoefficient } from "./data/about.js";
 import { consoleBase } from "./data/images.js";
-import DiscordHelper from "./helpers/discord-helper.js";
 import { AddClassById, IsElementHidden, isNullOrEmpty, Peek, SetCurrentTime, Show, ShowCurrent } from "./helpers/parsers.js";
-import Discord from "./utility/discord-client-parser.js";
 import MintyPlayer from "./utility/minty-player.js";
+
+const showTerminalAfterMS = 200;
+const showEachTerminalTextDelayMS = 300;
+const showBootAfterMS = 500;
+const showLoadingForMS = 2500;
 
 //🏁 Boot up setup:
 // 1. i need to show terminal
-setTimeout(ShowTerminal, 200);
-
-// 3. show bootup image, play sound
-// 4. show main ui
+setTimeout(ShowTerminal, showTerminalAfterMS);
 
 export function ShowTerminal() {
     Show('terminal', true)
 
+    //2. on click on terminal show boot ui
     document.getElementById('terminal').onclick = function(element) {
         element.target.onclick = undefined; //unsub
         AddClassById('pc-background', 'anim-element')
@@ -22,7 +23,7 @@ export function ShowTerminal() {
         Show('terminal', false)
         setTimeout(() => {
             ShowBootUI();
-        }, 1000);
+        }, showBootAfterMS);
     };
 
     let items = document.getElementsByName('terminal-startup-text');
@@ -36,7 +37,7 @@ export function ShowTerminal() {
 
         ShowCurrent(items[index], true);
         index++;
-    }, 300)
+    }, showEachTerminalTextDelayMS)
 }
 
 export function PlayAudio() {
@@ -45,16 +46,19 @@ export function PlayAudio() {
     audio.play();
 }
 
+// 3. show bootup image, play sound
 export function ShowBootUI() {
     Show('boot-background', true);
+    document.getElementById('boot-background').play();
     setTimeout(() => {
         Show('terminal', false);
         ShowMainUI();
         PlayAudio();
         setTimeout(() => { AddClassById('boot-background', 'fade-out'); }, 1000);
-    }, 1000);
+    }, showLoadingForMS);
 }
 
+// 4. show main ui
 export function ShowMainUI() {
     Show('terminal', false);
     Show('bg-video', true);
@@ -66,7 +70,6 @@ SetCurrentTime();
 setInterval(SetCurrentTime, 1000);
 
 document.getElementById('volume-button-topbar').onclick = function(event) {
-    console.log('1213')
     Show('volume-scroll-topbar', IsElementHidden('volume-scroll-topbar') ? true : false);
 }
 
@@ -84,20 +87,3 @@ const mintyPlayer = new MintyPlayer('bg-video', 'music-toggle');
 
 //🍰 Console setup:
 Peek(consoleBase, 15, 'What r u lookin at?');
-
-
-// const id = '189184578588508161';
-// const discord = new Discord(id);
-// let discordHelper = null;
-
-
-// discord.Parse().then((value) => {
-//     if(isNullOrEmpty(value)) {
-//         console.log(`❤️ Could not retrieve data about discord.`);
-//     } 
-//     else discordHelper = new DiscordHelper(value); 
-// }).finally(() => { 
-//         if(!isNullOrEmpty(discordHelper)) {
-//             discordHelper.InitializeDiscord(); 
-//         }
-//     });
