@@ -1,6 +1,6 @@
 import { antiEarRapeCoefficient } from "./data/about.js";
 import { consoleBase } from "./data/images.js";
-import { AddClassById, IsElementHidden, isNullOrEmpty, Peek, SetCurrentTime, Show, ShowCurrent } from "./helpers/parsers.js";
+import { AddClassById, IsElementHidden, isNullOrEmpty, Peek, SetCurrentTime, Show, ShowCurrent, ShowWindow, SubscribeOnClick } from "./helpers/parsers.js";
 import MintyPlayer from "./utility/minty-player.js";
 
 const showTerminalAfterMS = 200;
@@ -88,3 +88,7 @@ const mintyPlayer = new MintyPlayer('bg-video', 'music-toggle');
 
 //🍰 Console setup:
 Peek(consoleBase, 15, 'What r u lookin at?');
+
+SubscribeOnClick('test-window-button', () => {
+    ShowWindow(document.getElementById('test-window'))
+})

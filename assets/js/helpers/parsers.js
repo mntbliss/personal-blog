@@ -1,7 +1,5 @@
 import { peekStyle } from "../data/about.js";
 
-const audioCheckKey = 'eepywitchesOSAudioCheck';
-
 /**
  * Checks the element on existence
  */
@@ -29,6 +27,13 @@ export function SetCurrentTime() {
     document.getElementById('clock-date').innerText = `${date.getFullYear()}/${month}/${day} | ${hours}:${minutes}:${seconds}`;
 }
 
+export function SubscribeOnClick(elementId, handler) {
+  const element = document.getElementById(elementId)
+  if (!element) return
+
+  element.addEventListener("click", handler)
+}
+
 /**
  * Checks the id of an HTML element and if its hidden or not (contains `is-hidden` in class or not)
  */
@@ -47,14 +52,43 @@ export function Show(elementId, state) {
   ShowCurrent(document.getElementById(elementId), state);
 }
 
-export function SetBootAudioCheck(state) {
-  localStorage.setItem(audioCheckKey, state)
+export function ShowWindowState(windowElement, state) {
+  if (!windowElement) return
+
+  if (state) {
+    windowElement.classList.remove("window-hidden")
+    windowElement.classList.add("window-visible")
+  } else {
+    windowElement.classList.remove("window-visible")
+    windowElement.classList.add("window-hidden")
+  }
 }
 
-export function GetBootAudioCheck() {
-  const check = localStorage.getItem(audioCheckKey);
-  if(isNullOrEmpty(check)) return false
-  else return check
+export function ShowWindow(windowElement) {
+  if (!windowElement) return
+
+  if (!IsWindowVisible(windowElement)) {
+    CenterWindow(windowElement)
+    windowElement.classList.remove("window-hidden")
+    windowElement.classList.add("window-visible")
+  } else {
+    windowElement.classList.remove("window-visible")
+    windowElement.classList.add("window-hidden")
+  }
+}
+
+export function IsWindowVisible(windowElement) {
+  if (!windowElement) return false
+
+  return !windowElement.classList.contains('window-hidden')
+}
+
+export function CenterWindow(windowElement) {
+  const x = (window.innerWidth - windowElement.offsetWidth) / 2
+  const y = (window.innerHeight - windowElement.offsetHeight) / 2
+
+  windowElement.style.left = x + "px"
+  windowElement.style.top = y + "px"
 }
 
 export function ShowCurrent(element, state) {

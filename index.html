@@ -93,22 +93,41 @@
 
       <!-- Grid Home Start -->
       <div id="home-grid" class="home-grid is-hidden">
-          <img class="is-hoverable anim-element medium-scale is-64x64 mr-1 is-rounded" src="./assets/images/icons/home/kuromi/Amazon.png" />
-          <img class="is-hoverable anim-element medium-scale is-64x64 mr-1 is-rounded" src="./assets/images/icons/home/kuromi/Clock.png" />
-          <img class="is-hoverable anim-element medium-scale is-64x64 mr-1 is-rounded" src="./assets/images/icons/home/kuromi/Books.png" />
-          <img class="is-hoverable anim-element medium-scale is-64x64 mr-1 is-rounded" src="./assets/images/icons/home/kuromi/Camera.png" />
-          <img class="is-hoverable anim-element medium-scale is-64x64 mr-1 is-rounded" src="./assets/images/icons/home/kuromi/Discord.png" />
-          <img class="is-hoverable anim-element medium-scale is-64x64 mr-1 is-rounded" src="./assets/images/icons/home/kuromi/Game.png" />
-          <img class="is-hoverable anim-element medium-scale is-64x64 mr-1 is-rounded" src="./assets/images/icons/home/kuromi/Files.png" />
-          <img class="is-hoverable anim-element medium-scale is-64x64 mr-1 is-rounded" src="./assets/images/icons/home/kuromi/Gmail.png" />
-          <img class="is-hoverable anim-element medium-scale is-64x64 mr-1 is-rounded" src="./assets/images/icons/home/kuromi/Home.png" />
+          <div class="is-80x80">
+            <img class="is-hoverable anim-element medium-scale is-64x64 mr-1 is-rounded" src="./assets/images/icons/home/kuromi/Files.png" />
+            <p class="folder-name small-text">/root</p>
+          </div>
+          <div id="test-window-button" class="is-80x80">
+            <img id="test-window-button is-64x64" class="is-hoverable anim-element medium-scale is-64x64 mr-1 is-rounded" src="./assets/images/icons/home/kuromi/Amazon.png" />
+            <p class="folder-name small-text">/about</p>
+          </div>
+          <div class="is-80x80">
+            <img class="is-hoverable anim-element medium-scale is-64x64 mr-1 is-rounded" src="./assets/images/icons/home/kuromi/Books.png" />
+            <p class="folder-name small-text">/projects</p>
+          </div>
+          <div class="is-80x80">
+            <img class="is-hoverable anim-element medium-scale is-64x64 mr-1 is-rounded" src="./assets/images/icons/home/kuromi/Camera.png" />
+            <p class="folder-name small-text">/pictures</p>
+          </div>
+          <div class="is-80x80">
+            <img class="is-hoverable anim-element medium-scale is-64x64 mr-1 is-rounded" src="./assets/images/icons/home/kuromi/Game.png" />
+            <p class="folder-name small-text">/universe</p>
+          </div>
+          <div class="is-80x80">
+            <img class="is-hoverable anim-element medium-scale is-64x64 mr-1 is-rounded" src="./assets/images/icons/home/kuromi/Gmail.png" />
+            <p class="folder-name small-text">/contact</p>
+          </div>
       </div>
       <!-- Grid Home End -->
 
       <!-- WINDOWS -->
-      <div class="window">
-        <div id="drag" class="titlebar is-draggable">drag me</div>
+      <div id="test-window" class="window window-hidden">
+        <div class="titlebar is-draggable">drag me</div>
         <div class="content">not drag me</div>
+      </div>
+
+      <div id="chibi-container">
+        <canvas id="chibi"></canvas>
       </div>
 
       <!-- <div class="is-flex is-512x512">

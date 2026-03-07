@@ -71,8 +71,35 @@ body {
   overflow-x: hidden;
 }  
 
+#chibi-container {
+  position: fixed;
+
+  bottom: 20px;
+  right: 20px;
+
+  width: 200px;
+  height: 200px;
+
+  pointer-events: none;
+}
+
 /* =========== Generic ========== */
 :root {
+    --main-background: #000000;
+    --main-background-window: var(--accent-color-darker);
+    --main-background-title: var(--accent-color);
+    --main-background-folder-name: var(--main-color-darker);
+
+    --color-panel: #00000077;
+    --main-color: #5c7eb1;
+    --main-color-darker: #25254479;
+    --accent-color: #fc1a1a;
+    --accent-color-darker: #6e2020;
+    --accent-secondary-color: #998bc0;
+    --accent-secondary-color-darker: #825fff;
+    --secondary-color: #c99d7a;
+    --secondary-color-darker: #f77e46;
+
     --online: rgba(134, 255, 123, 0.9);
     --idle: rgba(243, 222, 101, 0.9);
     --dnd: rgba(233, 119, 119, 0.9);
@@ -81,29 +108,20 @@ body {
     --additional: rgba(119, 127, 233, 0.548);
     --additional-on: #43caffa6;
     --selection: #5627ff;
+
     --selection-text: #48ff00;
     --error-text: #ff4444;
-
-    --main-background: #000000;
-    --main-background-window: var(--accent-color-darker);
-    --main-background-title: var(--accent-color);
-    --sepia-percentage: 40%;
-    --old-pc-borders: 30px;
-    --old-pc-screen-width: 80%;
+    --windows-text: #000000;
+    
     --burned-screen-lines-color: #00000063;
     --button-border-color: #0f0f0f;
     --button-background: var(--accent-color-darker);
     --button-hover-background: var(--accent-color);
 
-    --color-panel: #00000077;
-    --main-color: #5c7eb1;
-    --main-color-darker: #3a5ccc;
-    --accent-color: #fc1a1a;
-    --accent-color-darker: #6e2020;
-    --accent-secondary-color: #998bc0;
-    --accent-secondary-color-darker: #825fff;
-    --secondary-color: #c99d7a;
-    --secondary-color-darker: #f77e46;
+    --windows-borders: 20px;
+    --sepia-percentage: 40%;
+    --old-pc-borders: 30px;
+    --old-pc-screen-width: 80%;
 
     --top-panel-padding: 1rem;
     --top-panel-height: 40px;
@@ -169,12 +187,41 @@ body {
   left: 100px;
   width: 200px;
   height: 200px;
-  border: 2px solid var(--main-background-window);
+  border: 2px solid var(--accent-secondary-color-darker) !important;
+  border-radius: var(--windows-borders);
+  color: var(--windows-text);
   user-select: none;
+  background-color: var(--main-color-darker);
+  transform-origin: center; /* pop from center looks cute :3 */
+
+  transition: transform 0.25s ease, opacity 0.25s ease;
+}
+
+.window-hidden {
+  opacity: 0;
+  transform: scale(0.92);
+  pointer-events: none;
+}
+
+.window-visible {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.folder-name {
+  color: var(--error-text);
+  background-color: var(--main-background-folder-name);
+  border: 2px solid var(--accent-color);
+  border-radius: var(--windows-borders);
+  padding-left: 2px;
+  padding-right: 2px;
+  margin-left: -10px;
+  margin-right: -10px;
 }
 
 .titlebar {
-  background: var(--main-background-title);
+  background: var(--accent-secondary-color-darker);
+  border-radius: calc(var(--windows-borders) - 2px) calc(var(--windows-borders) - 2px) 0px 0px;
   cursor: move;
   padding: 5px;
   user-select: none;

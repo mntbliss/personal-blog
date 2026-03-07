@@ -36,6 +36,13 @@
   max-height: 64px;
 }
 
+.is-80x80 {
+  width: 80px;
+  height: 80px;
+  max-width: 80px;
+  max-height: 80px;
+}
+
 .is-128x128 {
   width: 128px;
   height: 128px;
@@ -58,7 +65,12 @@
 }
 
 .is-rounded {
-  border-radius: 50%;
+  border-radius: 10px;
+  border: 2px solid var(--accent-color);
+}
+
+.small-text {
+  font-size: small;
 }
 
 /* 🌺🍯🍰💖💗 Block and display stuff 💗💖🍰🍯🌺 */
