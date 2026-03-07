@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>🍃 Minty Portfolio</title>
+  <title>root@mntbliss ~</title>
 
   <meta property="og:title" content="mntbliss" /> 
   <meta property="og:description" content="mntbliss dev page inspired by cool guys from neocities" /> 
@@ -33,6 +33,8 @@
       <source src="./assets/videos/back.mp4" type="video/mp4">
     </video>
     <div class="overlay">
+      
+      <!-- Login Terminal Start -->
       <div id="terminal" class="startup-terminal is-hidden">
         <p>Minty Medallion BIOS v6.0, Hewwo Fwiends Whu Weading Whis</p>
         <p>Copyright (C) 1904-2025, Limelight Mint Software, Inc.</p>
@@ -57,6 +59,8 @@
           <p>16/01/2000-1050-00</p>
         </div>
       </div>
+      <!-- Login Terminal End -->
+
       <div id="top-panel" class="top-panel is-hidden">
         <!-- Start menu -->
         <div class="top-item left-corner-item is-desktop-only">
@@ -78,7 +82,6 @@
             <img id="volume-button-image-topbar" class="is-20x20 mr-1" src="./assets/images/icons/volume-down.svg" />
             <p id="volume-button-text-topbar" class="top-text mr-2">0%</p>
           </span>
-          <img class="is-hoverable anim-element medium-scale is-20x20 mr-2 is-flex" src="./assets/images/icons/music-icon.svg" />
           <span id="volume-scroll-topbar" class="volume-scroll-topbar is-hidden">
             <span class="scroll-meter"></span>
             <input type="range" id="volume-meter" value="0">
@@ -86,6 +89,26 @@
           <img class="is-hoverable anim-element medium-scale is-20x20 mr-1" src="./assets/images/icons/messenger.svg" />
           <img class="is-hoverable anim-element medium-scale is-24x24 ml-5" src="./assets/images/icons/power.svg" />
         </div>
+      </div>
+
+      <!-- Grid Home Start -->
+      <div id="home-grid" class="home-grid is-hidden">
+          <img class="is-hoverable anim-element medium-scale is-64x64 mr-1 is-rounded" src="./assets/images/icons/home/kuromi/Amazon.png" />
+          <img class="is-hoverable anim-element medium-scale is-64x64 mr-1 is-rounded" src="./assets/images/icons/home/kuromi/Clock.png" />
+          <img class="is-hoverable anim-element medium-scale is-64x64 mr-1 is-rounded" src="./assets/images/icons/home/kuromi/Books.png" />
+          <img class="is-hoverable anim-element medium-scale is-64x64 mr-1 is-rounded" src="./assets/images/icons/home/kuromi/Camera.png" />
+          <img class="is-hoverable anim-element medium-scale is-64x64 mr-1 is-rounded" src="./assets/images/icons/home/kuromi/Discord.png" />
+          <img class="is-hoverable anim-element medium-scale is-64x64 mr-1 is-rounded" src="./assets/images/icons/home/kuromi/Game.png" />
+          <img class="is-hoverable anim-element medium-scale is-64x64 mr-1 is-rounded" src="./assets/images/icons/home/kuromi/Files.png" />
+          <img class="is-hoverable anim-element medium-scale is-64x64 mr-1 is-rounded" src="./assets/images/icons/home/kuromi/Gmail.png" />
+          <img class="is-hoverable anim-element medium-scale is-64x64 mr-1 is-rounded" src="./assets/images/icons/home/kuromi/Home.png" />
+      </div>
+      <!-- Grid Home End -->
+
+      <!-- WINDOWS -->
+      <div class="window">
+        <div id="drag" class="titlebar is-draggable">drag me</div>
+        <div class="content">not drag me</div>
       </div>
 
       <!-- <div class="is-flex is-512x512">
@@ -156,6 +179,7 @@
   </section> -->
 
   <script src="./assets/js/shared.js" type="module"></script>
+  <script src="./assets/js/utility/hoverables.js" type="module"></script>
   <script src="./assets/js/helpers/discord-helper.js" type="module"></script>
 </body>
 </html>

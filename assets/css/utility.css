@@ -57,6 +57,10 @@
   max-height: 512px;
 }
 
+.is-rounded {
+  border-radius: 50%;
+}
+
 /* 🌺🍯🍰💖💗 Block and display stuff 💗💖🍰🍯🌺 */
 
 .is-flex {

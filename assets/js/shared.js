@@ -6,7 +6,7 @@ import MintyPlayer from "./utility/minty-player.js";
 const showTerminalAfterMS = 200;
 const showEachTerminalTextDelayMS = 300;
 const showBootAfterMS = 500;
-const showLoadingForMS = 2500;
+const showLoadingForMS = 2400;
 
 //🏁 Boot up setup:
 // 1. i need to show terminal
@@ -63,6 +63,7 @@ export function ShowMainUI() {
     Show('terminal', false);
     Show('bg-video', true);
     Show('top-panel', true);
+    Show('home-grid', true);
 }
 
 //🍰 Timer setup:

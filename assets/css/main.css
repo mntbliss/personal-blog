@@ -85,8 +85,11 @@ body {
     --error-text: #ff4444;
 
     --main-background: #000000;
+    --main-background-window: var(--accent-color-darker);
+    --main-background-title: var(--accent-color);
     --sepia-percentage: 40%;
     --old-pc-borders: 30px;
+    --old-pc-screen-width: 80%;
     --burned-screen-lines-color: #00000063;
     --button-border-color: #0f0f0f;
     --button-background: var(--accent-color-darker);
@@ -103,7 +106,17 @@ body {
     --secondary-color-darker: #f77e46;
 
     --top-panel-padding: 1rem;
+    --top-panel-height: 40px;
     --default-font-size: 18px;
+    --home-icons-gap-columns: 40px;
+}
+
+
+@media (max-width: 768px) {
+  :root {
+    --old-pc-borders: 0px !important;
+    --old-pc-screen-width: 100% !important;
+  }
 }
 
 
@@ -150,6 +163,24 @@ body {
   /* color: var(--accent-secondary-color-darker); */
 }
 
+.window {
+  position: absolute;
+  top: 100px;
+  left: 100px;
+  width: 200px;
+  height: 200px;
+  border: 2px solid var(--main-background-window);
+  user-select: none;
+}
+
+.titlebar {
+  background: var(--main-background-title);
+  cursor: move;
+  padding: 5px;
+  user-select: none;
+  /* z-index: 999999; */
+}
+
 /* ====== PC BACK ====== */
 .pc {
   position: absolute;
@@ -177,6 +208,16 @@ body {
   z-index: -1;
 }
 
+.home-grid {
+  display: flex;
+  position: absolute;
+  top: calc(2 * var(--top-panel-height));
+  gap: var(--home-icons-gap-columns);
+  left: 0px;
+  padding-left: calc(2 * var(--top-panel-padding));
+  padding-right: calc(2 * var(--top-panel-padding));
+  flex-wrap: wrap;
+}
 
 .bg {
   position: absolute;
@@ -305,12 +346,13 @@ body {
 
 .top-panel {
   display: flex;
+  position: fixed;
   align-items: center;
   align-content: center;
   justify-content: center;
   justify-items: center;
   width: 100%;
-  height: 40px;
+  height: var(--top-panel-height);
   border: #ffffff;
   background-color: var(--color-panel);
   padding-left: var(--top-panel-padding);

@@ -1,5 +1,7 @@
 import { peekStyle } from "../data/about.js";
 
+const audioCheckKey = 'eepywitchesOSAudioCheck';
+
 /**
  * Checks the element on existence
  */
@@ -43,6 +45,16 @@ export function Show(elementId, state) {
   if(!isHiddenAlready && state) return; //already enabled
 
   ShowCurrent(document.getElementById(elementId), state);
+}
+
+export function SetBootAudioCheck(state) {
+  localStorage.setItem(audioCheckKey, state)
+}
+
+export function GetBootAudioCheck() {
+  const check = localStorage.getItem(audioCheckKey);
+  if(isNullOrEmpty(check)) return false
+  else return check
 }
 
 export function ShowCurrent(element, state) {

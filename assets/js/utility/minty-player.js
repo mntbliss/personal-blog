@@ -21,7 +21,7 @@ export default class MintyPlayer {
       this.playButton = document.getElementById(buttonId)
 
       // document.getElementById('music-toggle').addEventListener('click', () => this.Play());
-      document.getElementById('music-toggle').addEventListener('click', () => this.PlaySolo());
+      document.getElementById('music-toggle')?.addEventListener('click', () => this.PlaySolo());
     });
     
   }
