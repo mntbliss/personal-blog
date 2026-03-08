@@ -79,8 +79,6 @@ body {
 
   width: 200px;
   height: 200px;
-
-  pointer-events: none;
 }
 
 /* =========== Generic ========== */
@@ -92,7 +90,7 @@ body {
 
     --color-panel: #00000077;
     --main-color: #5c7eb1;
-    --main-color-darker: #25254479;
+    --main-color-darker: #252544a2;
     --accent-color: #fc1a1a;
     --accent-color-darker: #6e2020;
     --accent-secondary-color: #998bc0;
@@ -181,6 +179,29 @@ body {
   /* color: var(--accent-secondary-color-darker); */
 }
 
+.content {
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  justify-items: center;
+  display: block;
+}
+
+.subtitle {
+  color: var(--selection-text) !important;
+}
+
+.name-title {
+  font-size: larger;
+  color: var(--accent-secondary-color-darker);
+}
+
+.is-small {
+  font-size: small;
+  color: var(--error-text);
+  font-style: italic;
+}
+
 .window {
   position: absolute;
   top: 100px;
@@ -193,6 +214,7 @@ body {
   user-select: none;
   background-color: var(--main-color-darker);
   transform-origin: center; /* pop from center looks cute :3 */
+  backdrop-filter: blur(5px);
 
   transition: transform 0.25s ease, opacity 0.25s ease;
 }
@@ -208,6 +230,15 @@ body {
   transform: scale(1);
 }
 
+.close-button {
+  display: block;
+  position: absolute;
+  right: 0px;
+  top: 1px;
+  pointer-events: visible;
+  z-index: 90;
+}
+
 .folder-name {
   color: var(--error-text);
   background-color: var(--main-background-folder-name);
@@ -217,6 +248,7 @@ body {
   padding-right: 2px;
   margin-left: -10px;
   margin-right: -10px;
+  margin-top: 8px;
 }
 
 .titlebar {
@@ -288,6 +320,19 @@ body {
   }
 }
 
+.is-pixelated-border {
+    image-rendering: pixelated;
+  filter:
+    drop-shadow(2px 0 var(--accent-color))
+    drop-shadow(-2px 0 var(--accent-secondary-color-darker))
+    drop-shadow(0 2px var(--selection-text))
+    drop-shadow(0 -2px var(--accent-secondary-color-darker));
+}
+
+.is-pixelated {
+    image-rendering: pixelated;
+}
+
 #pc-background {
   width: 100%;
   height: 100%;
@@ -331,7 +376,7 @@ body {
     width: 100%;
     height: 100%;
     background: repeating-linear-gradient(
-      transparent 14px,
+      transparent 17px,
       var(--burned-screen-lines-color) 20px
     );
     pointer-events: none;
@@ -473,4 +518,12 @@ body {
     display: flex;
     z-index: 1;
   }
+}
+
+
+/* WINDOWS */
+
+#window-about {
+  width: 400px;
+  height: 600px;
 }

@@ -28,10 +28,17 @@ export function SetCurrentTime() {
 }
 
 export function SubscribeOnClick(elementId, handler) {
-  const element = document.getElementById(elementId)
+  SubscribeOnClickElement(document.getElementById(elementId), handler)
+}
+
+export function SubscribeOnClickElement(element, handler) {
   if (!element) return
 
   element.addEventListener("click", handler)
+}
+
+export function RandomInt(min, max) {
+  return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
 /**

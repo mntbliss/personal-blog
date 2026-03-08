@@ -21,11 +21,11 @@
   <section class="pc">
     <span class="burntout-layer"></span>
     <div id="pc-background" class="is-desktop-only">
-      <img src="./assets/images/back/back_overlay.png" class="bg" style="object-fit: fill; z-index: 2;">
-      <img src="./assets/images/back/back_1.jpg" class="bg" style="object-fit: fill;">
-      <img src="./assets/images/icons/bios-energy.png" class="terminal-logo">
+      <img src="./assets/images/back/back_overlay.png" class="bg is-pixelated" style="object-fit: fill; z-index: 2;">
+      <img src="./assets/images/back/back_1.jpg" class="bg is-pixelated" style="object-fit: fill;">
+      <img src="./assets/images/icons/bios-energy.png" class="terminal-logo is-pixelated-border">
     </div>
-    <img id="terminal-background" src="./assets/images/back/back_2.jpg" style="filter:opacity(25%)" class="bg is-hidden">
+    <img id="terminal-background" src="./assets/images/back/back_2.jpg" style="filter:opacity(25%)" class="bg is-hidden is-pixelated">
     <video muted loop playsinline preload="true" id="boot-background" class="bg anim-element fade-in is-hidden">
       <source src="./assets/videos/boot.mp4" type="video/mp4">
     </video>
@@ -93,37 +93,47 @@
 
       <!-- Grid Home Start -->
       <div id="home-grid" class="home-grid is-hidden">
-          <div class="is-80x80">
-            <img class="is-hoverable anim-element medium-scale is-64x64 mr-1 is-rounded" src="./assets/images/icons/home/kuromi/Files.png" />
-            <p class="folder-name small-text">/root</p>
+          <div class="is-80x80 is-pixelated-border">
+            <img class="is-hoverable anim-element medium-scale is-64x64 is-rounded" src="./assets/images/icons/home/kuromi/Files.png" />
+            <p class="folder-name small-text">~#</p>
           </div>
-          <div id="test-window-button" class="is-80x80">
-            <img id="test-window-button is-64x64" class="is-hoverable anim-element medium-scale is-64x64 mr-1 is-rounded" src="./assets/images/icons/home/kuromi/Amazon.png" />
+          <div id="window-about-button" class="is-80x80 is-pixelated-border">
+            <img id="is-64x64" class="is-hoverable anim-element medium-scale is-64x64 is-rounded" src="./assets/images/icons/home/kuromi/Amazon.png" />
             <p class="folder-name small-text">/about</p>
           </div>
-          <div class="is-80x80">
-            <img class="is-hoverable anim-element medium-scale is-64x64 mr-1 is-rounded" src="./assets/images/icons/home/kuromi/Books.png" />
+          <div class="is-80x80 is-pixelated-border">
+            <img class="is-hoverable anim-element medium-scale is-64x64 is-rounded" src="./assets/images/icons/home/kuromi/Books.png" />
             <p class="folder-name small-text">/projects</p>
           </div>
-          <div class="is-80x80">
-            <img class="is-hoverable anim-element medium-scale is-64x64 mr-1 is-rounded" src="./assets/images/icons/home/kuromi/Camera.png" />
+          <div class="is-80x80 is-pixelated-border">
+            <img class="is-hoverable anim-element medium-scale is-64x64 is-rounded" src="./assets/images/icons/home/kuromi/Camera.png" />
             <p class="folder-name small-text">/pictures</p>
           </div>
-          <div class="is-80x80">
-            <img class="is-hoverable anim-element medium-scale is-64x64 mr-1 is-rounded" src="./assets/images/icons/home/kuromi/Game.png" />
+          <div class="is-80x80 is-pixelated-border">
+            <img class="is-hoverable anim-element medium-scale is-64x64 is-rounded" src="./assets/images/icons/home/kuromi/Game.png" />
             <p class="folder-name small-text">/universe</p>
           </div>
-          <div class="is-80x80">
-            <img class="is-hoverable anim-element medium-scale is-64x64 mr-1 is-rounded" src="./assets/images/icons/home/kuromi/Gmail.png" />
+          <div class="is-80x80 is-pixelated-border">
+            <img class="is-hoverable anim-element medium-scale is-64x64 is-rounded" src="./assets/images/icons/home/kuromi/Gmail.png" />
             <p class="folder-name small-text">/contact</p>
           </div>
       </div>
       <!-- Grid Home End -->
 
       <!-- WINDOWS -->
-      <div id="test-window" class="window window-hidden">
-        <div class="titlebar is-draggable">drag me</div>
-        <div class="content">not drag me</div>
+      <div id="window-about" class="window window-hidden">
+        <div class="titlebar is-draggable">
+          ./about.md
+        </div>
+        <img class="close-button is-32x32" src="./assets/images/icons/close.svg" />
+        <div class="content mt-4">
+            <img id="avatar" class="is-256x256 is-rounded is-pixelated-border" src='./assets/images/broken_avatar.png' />
+            <p class="name-title">@mntbliss</p>
+            <small class="is-small">Frontend, Backend, Game Dev, CI/CD/Bots</small>
+            <p class="is-small subtitle mt-4">✨ C#, C++, Java, JavaScript/TypeScript, Python, Ruby, GO, HLSL</p>
+            <p class="is-small subtitle">✨ Vue2-3, React, Unity/Unreal/GameMaker/RPG Maker/Godot/any other engine, VR/XR/AR (Oculus Quest, HoloLens, Vuforia, etc.)</p>
+            <p class="is-small subtitle">✨ 12+ years of experience in commercial development</p>
+        </div>
       </div>
 
       <div id="chibi-container">
@@ -198,6 +208,7 @@
   </section> -->
 
   <script src="./assets/js/shared.js" type="module"></script>
+  <script src="./assets/js/chibi.js" type="module"></script>
   <script src="./assets/js/utility/hoverables.js" type="module"></script>
   <script src="./assets/js/helpers/discord-helper.js" type="module"></script>
 </body>

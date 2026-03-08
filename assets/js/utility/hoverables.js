@@ -1,3 +1,5 @@
+import { ShowWindowState, SubscribeOnClick, SubscribeOnClickElement } from "../helpers/parsers.js";
+
 document.addEventListener('DOMContentLoaded', () => {
 
     // Get all "navbar-burger" elements
@@ -33,6 +35,9 @@ export function SetDraggableWindow(draggableWindow) {
 
   const titlebar = draggableWindow.querySelector(".titlebar")
   if (!titlebar) return
+
+  const closeButton = draggableWindow.querySelector(".close-button")
+  SubscribeOnClickElement(closeButton, () => ShowWindowState(draggableWindow, false))
 
   const desktop = draggableWindow.parentElement
 

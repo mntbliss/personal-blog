@@ -1,6 +1,6 @@
 import { antiEarRapeCoefficient } from "./data/about.js";
 import { consoleBase } from "./data/images.js";
-import { AddClassById, IsElementHidden, isNullOrEmpty, Peek, SetCurrentTime, Show, ShowCurrent, ShowWindow, SubscribeOnClick } from "./helpers/parsers.js";
+import { AddClassById, IsElementHidden, isNullOrEmpty, Peek, RandomInt, SetCurrentTime, Show, ShowCurrent, ShowWindow, SubscribeOnClick } from "./helpers/parsers.js";
 import MintyPlayer from "./utility/minty-player.js";
 
 const showTerminalAfterMS = 200;
@@ -40,8 +40,8 @@ export function ShowTerminal() {
     }, showEachTerminalTextDelayMS)
 }
 
-export function PlayAudio() {
-    const audio = new Audio('./assets/sounds/startup.mp3');
+export function PlayAudio(url) {
+    const audio = new Audio(url);
     audio.volume = 0.1;
     audio.play();
 }
@@ -50,10 +50,12 @@ export function PlayAudio() {
 export function ShowBootUI() {
     Show('boot-background', true);
     document.getElementById('boot-background').play();
+    setTimeout(() => PlayAudio('./assets/sounds/glitch2.mp3'), 1500);
+    setTimeout(() => PlayAudio('./assets/sounds/glitch4.mp3'), 2200);
     setTimeout(() => {
         Show('terminal', false);
         ShowMainUI();
-        PlayAudio();
+        PlayAudio('./assets/sounds/startup.mp3');
         setTimeout(() => { AddClassById('boot-background', 'fade-out'); }, 1000);
     }, showLoadingForMS);
 }
@@ -87,8 +89,14 @@ document.getElementById('volume-meter').oninput = function(event) {
 const mintyPlayer = new MintyPlayer('bg-video', 'music-toggle');
 
 //🍰 Console setup:
-Peek(consoleBase, 15, 'What r u lookin at?');
+// Peek(consoleBase, 15, 'What r u lookin at?');
 
-SubscribeOnClick('test-window-button', () => {
-    ShowWindow(document.getElementById('test-window'))
+SubscribeOnClick('window-about-button', () => {
+    document.getElementById('avatar').src = `./assets/images/broken_avatar.png`
+    
+    ShowWindow(document.getElementById('window-about'));
+    setTimeout(() => {
+        PlayAudio('./assets/sounds/glitch5.mp3')
+        document.getElementById('avatar').src = `./assets/images/avatar${RandomInt(1, 12)}.jpg`
+    }, 1000)
 })
