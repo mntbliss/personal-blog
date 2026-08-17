@@ -92,7 +92,7 @@ export default class DiscordHelper {
     }
 
     /** Renders about-glass: either default text or Discord activity (image + description). */
-    InitializeAboutGlass(defaultText = 'Creating games and tiny universes 🌿') {
+    InitializeAboutGlass(defaultText = 'Creating games and tiny universes 🍂') {
         const glassElement = document.getElementById('about-glass');
         if (!glassElement) return;
         const activity = this.GetActivityDisplay();

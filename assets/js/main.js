@@ -23,7 +23,7 @@ discord.Parse().then((value) => {
 }).finally(() => { 
         if(!isNullOrEmpty(discordHelper)) {
             discordHelper.InitializeDiscord();
-            discordHelper.InitializeAboutGlass('Creating games and tiny universes 🌿');
+            discordHelper.InitializeAboutGlass();
         }
         
         console.image = function(url, size = 100, aftertext = '') {
