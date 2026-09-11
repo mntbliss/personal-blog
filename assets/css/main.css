@@ -378,11 +378,52 @@
   font-weight: 500;
 }
 
+.project-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  justify-content: center;
+  margin: 0 auto 2.5rem;
+  max-width: 640px;
+}
+
+.filter-button {
+  font-family: inherit;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.85);
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 12px;
+  padding: 0.45rem 1rem;
+  backdrop-filter: blur(10px);
+  cursor: pointer;
+  transition: all 0.25s ease;
+  outline: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.filter-button:hover {
+  background: rgba(255, 255, 255, 0.14);
+  transform: translateY(-2px);
+}
+
+.filter-button.active {
+  background: rgba(143, 101, 223, 0.35);
+  border-color: rgba(143, 101, 223, 0.45);
+  box-shadow: 0 0 12px rgba(122, 142, 255, 0.25);
+  color: #fff;
+}
+
 .masonry {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
   gap: 2rem;
   justify-items: center;
+}
+
+.card.is-hidden {
+  display: none;
 }
 
 .link {
