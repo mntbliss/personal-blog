@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chat · mntbliss</title>
+  <link rel="stylesheet" href="assets/css/main.css" />
+  <link rel="stylesheet" href="assets/css/discuss.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
+</head>
+<body class="discuss-page">
+  <main class="discuss-shell chat-shell">
+    <a class="discuss-back" href="./chats.html">← Chats</a>
+    <h1 id="chat-title">Project chat</h1>
+
+    <div id="chat-thread" class="chat-thread discuss-card" aria-live="polite"></div>
+
+    <form id="chat-form" class="discuss-card chat-compose" novalidate>
+      <input id="chat-project-name" type="text" name="projectName" placeholder="Project name" maxlength="120" autocomplete="off" hidden required />
+      <input id="chat-contact" type="text" name="contact" placeholder="Optional contact (Telegram / email)" autocomplete="off" hidden />
+      <textarea id="chat-input" name="body" rows="3" placeholder="Write a message…" required></textarea>
+      <p class="hire-form-error" id="chat-error" hidden></p>
+      <button type="submit" class="hire-btn hire-btn-primary">Send</button>
+    </form>
+
+    <footer id="chat-footer" class="chat-footer discuss-card" hidden>
+      <p class="chat-footer-hint">Save this code to access or restore the chat on another device</p>
+      <div class="chat-footer-row">
+        <code id="chat-access-code"></code>
+        <button type="button" id="chat-copy-code" class="hire-btn hire-btn-ghost">Copy</button>
+      </div>
+    </footer>
+  </main>
+  <script type="module">
+    import { initChatPage } from './assets/js/ui/discuss-chat.js';
+    initChatPage();
+  </script>
+</body>
+</html>

@@ -1,7 +1,7 @@
 export const images = {
     logo: './assets/images/icons/personal_logo.png',
     madeline_splash: './assets/images/covers/madeline_splash_cut.png',
-    base_avatar: './assets/images/base_avatar.gif',
+    base_avatar: './assets/images/base_avatar.webp',
     rori_avatar: './assets/images/rori_avatar.png',
     splash1: './assets/images/covers/splash_1.png',
     preview: './assets/videos/preview_burnice.mp4',
@@ -21,5 +21,5 @@ export const icons = {
     music: './assets/images/icons/music.svg',
     github: './assets/images/icons/github.svg',
     discord: './assets/images/icons/discord.svg',
-    unknown_app: './assets/images/teto.gif',
+    unknown_app: './assets/images/teto.webp',
 }

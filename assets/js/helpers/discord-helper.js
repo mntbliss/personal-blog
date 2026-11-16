@@ -88,16 +88,28 @@ export default class DiscordHelper {
     }
 
     InitializeDiscord() {
-        document.getElementById('status-dot').classList.add(this.GetDiscordStatus());
+        const dot = document.getElementById('status-dot');
+        const holder = document.querySelector('.status-holder');
+        if (!dot) return;
+
+        dot.classList.remove('online', 'idle', 'dnd', 'offline');
+        dot.classList.add(this.GetDiscordStatus());
+        holder?.classList.add('is-visible');
     }
 
-    /** Renders about-glass: either default text or Discord activity (image + description). */
-    InitializeAboutGlass(defaultText = 'Creating games and tiny universes 🍂') {
+    /** Shows Discord activity in about-glass when available; hides it otherwise. */
+    InitializeAboutGlass() {
         const glassElement = document.getElementById('about-glass');
         if (!glassElement) return;
         const activity = this.GetActivityDisplay();
         if (!activity) {
-            glassElement.innerHTML = `<p>${defaultText}</p>`;
+            glassElement.classList.remove('is-visible');
+            window.setTimeout(() => {
+                if (!glassElement.classList.contains('is-visible')) {
+                    glassElement.hidden = true;
+                    glassElement.innerHTML = '';
+                }
+            }, 400);
             return;
         }
 
@@ -107,9 +119,9 @@ export default class DiscordHelper {
 
         const linkHtml = activity.link
             ? `<a class="about-glass-activity-link" href="${EscapeHtml(activity.link)}" target="_blank" rel="noopener noreferrer" aria-label="Open link">${EXTERNAL_LINK_ICON}</a>`
-            : `<span class="about-glass-activity-link about-glass-activity-link--no-link" aria-hidden="true">${EXTERNAL_LINK_ICON}</span>`;
+            : `<span class="about-glass-activity-link about-glass-activity-link-disabled" aria-hidden="true">${EXTERNAL_LINK_ICON}</span>`;
 
-            glassElement.innerHTML = `
+        const nextHtml = `
             <div class="about-glass-activity">
                 <img class="about-glass-activity-img" src="${activity.imageUrl}" alt="" />
                 <div class="about-glass-activity-body">
@@ -119,6 +131,23 @@ export default class DiscordHelper {
                 ${linkHtml}
             </div>
         `;
+
+        const reveal = () => {
+            glassElement.innerHTML = nextHtml;
+            glassElement.hidden = false;
+            requestAnimationFrame(() => {
+                requestAnimationFrame(() => glassElement.classList.add('is-visible'));
+            });
+        };
+
+        if (glassElement.hidden || !glassElement.classList.contains('is-visible')) {
+            reveal();
+            return;
+        }
+
+        // Smooth swap on refresh: fade out → replace → fade in
+        glassElement.classList.remove('is-visible');
+        window.setTimeout(reveal, 280);
     }
 }
 

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Discuss · mntbliss</title>
+  <link rel="stylesheet" href="assets/css/main.css" />
+  <link rel="stylesheet" href="assets/css/discuss.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
+</head>
+<body class="discuss-page">
+  <main class="discuss-shell">
+    <a class="discuss-back" href="./index.html">← Portfolio</a>
+    <h1>Discuss</h1>
+    <p class="discuss-lead">Continue a chat with your access code, or start a new one.</p>
+
+    <form id="chats-open-form" class="discuss-card" novalidate>
+      <label for="chats-code">Access code</label>
+      <input id="chats-code" name="accessCode" type="text" autocomplete="off" placeholder="xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx" required />
+      <p class="hire-form-error" id="chats-error" hidden></p>
+      <div class="chats-actions">
+        <button type="submit" class="hire-btn hire-btn-primary">Open chat</button>
+        <button type="button" id="chats-start" class="hire-btn hire-btn-ghost">New discussion</button>
+      </div>
+    </form>
+
+    <section class="discuss-card" id="chats-inbox-card" hidden>
+      <h2>Inbox</h2>
+      <div id="chats-inbox" class="chats-saved"></div>
+    </section>
+
+    <section class="discuss-card">
+      <h2>On this device</h2>
+      <div id="chats-saved" class="chats-saved"></div>
+    </section>
+  </main>
+  <script type="module">
+    import { initChatsPage } from './assets/js/ui/discuss-chat.js';
+    initChatsPage();
+  </script>
+</body>
+</html>

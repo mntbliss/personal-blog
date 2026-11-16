@@ -1,4 +1,4 @@
-import MintyConsole from "../debug/minty_console.js";
+import MintyConsole from "../debug/minty-console.js";
 
 const contentPages = [
     'content-page-about',

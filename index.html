@@ -11,14 +11,16 @@
   <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
 </head>
 <body>
+  <svg width="0" height="0" aria-hidden="true" focusable="false" style="position:absolute;overflow:hidden">
+    <defs>
+      <path id="star-shine-path" d="m560.2 392.76c-82.812-36.449-116.51-70.141-152.95-152.95-1.2383-2.9062-4.0898-4.7891-7.2422-4.7891-3.1562 0-6.0078 1.8828-7.2422 4.7891-36.449 82.812-70.141 116.51-152.95 152.95-2.9062 1.2344-4.7891 4.0859-4.7891 7.2422 0 3.1523 1.8828 6.0039 4.7891 7.2422 82.812 36.449 116.51 70.141 152.95 152.95 1.2344 2.9023 4.0859 4.7852 7.2422 4.7852 3.1523 0 6.0039-1.8828 7.2422-4.7852 36.449-82.812 70.141-116.51 152.95-152.95 2.9023-1.2383 4.7852-4.0898 4.7852-7.2422 0-3.1562-1.8828-6.0078-4.7852-7.2422z"/>
+    </defs>
+  </svg>
   <section class="hero">
     <video autoplay muted loop playsinline id="bg-video">
       <source src="./assets/videos/back.mp4" type="video/mp4">
     </video>
-    <div class="overlay">
-      <div class="scroll-hint">SCROLL DOWN TO PROJECTS</div>
-      <div class="scroll-hint icon"><img src="./assets/images/arrow.svg" class="is-32x32" /></div>
-    </div>
+    <div class="overlay"></div>
 
     <div class="intro">
         <div class="avatar-holder">
@@ -26,33 +28,148 @@
             <div class="status-holder">
                 <div class="fir-imageover-color status" id="status-dot"></div>
             </div>
-            <button class="music-toggle" id="music-toggle">
-                <img src="./assets/images/music.svg" />
-            </button>
+            <nav class="avatar-orbit" aria-label="Quick actions">
+              <a class="orbit-star" style="--a: 222deg" href="https://t.me/eepyloser" target="_blank" rel="noopener noreferrer" aria-label="Telegram">
+                <svg class="orbit-star-shape" viewBox="144 144 512 512" aria-hidden="true"><use href="#star-shine-path"/></svg>
+                <img src="./assets/images/telegram.svg" alt="" />
+              </a>
+              <a class="orbit-star" style="--a: 180deg" href="mailto:mntbliss@pm.me" aria-label="Email">
+                <svg class="orbit-star-shape" viewBox="144 144 512 512" aria-hidden="true"><use href="#star-shine-path"/></svg>
+                <img src="./assets/images/email.svg" alt="" />
+              </a>
+              <a class="orbit-star" style="--a: 138deg" href="https://github.com/limelight-mint" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+                <svg class="orbit-star-shape" viewBox="144 144 512 512" aria-hidden="true"><use href="#star-shine-path"/></svg>
+                <img src="./assets/images/github.svg" alt="" />
+              </a>
+              <!-- music toggle + dual bg player disabled (stutter suspect but idk)
+              <button type="button" class="orbit-star music-toggle" id="music-toggle" style="--a: -48deg" aria-label="Toggle music">
+                <svg class="orbit-star-shape" viewBox="144 144 512 512" aria-hidden="true"><use href="#star-shine-path"/></svg>
+                <img src="./assets/images/music.svg" alt="" />
+              </button>
+              -->
+            </nav>
         </div>
         <div class="top-headings-holder">
-            <h1 style="margin-top: -32px;">mntbliss</h1>
-            <p class="roles">Gamedev (Unity) ✦ Frontend (Vue3/React) ✦ Backend (C#/C++/JS)</p>
+            <h1>mntbliss</h1>
+            <p class="roles">Game Developer ✦ Fullstack Developer</p>
         </div>
-        
-        <div class="about-glass" id="about-glass">
-            <p>Creating games and tiny universes 🍂</p>
+
+        <div class="about-glass" id="about-glass" hidden></div>
+
+        <div class="skills" aria-label="Languages, engines and frameworks">
+          <div class="skills-row">
+            <div class="skills-group">
+              <div class="skill-bubble skill-bubble-hex" tabindex="0">
+                <img src="./assets/images/skills/csharp.svg" alt="" />
+                <span class="skill-name">C#</span>
+              </div>
+              <div class="skill-bubble skill-bubble-hex" tabindex="0">
+                <img src="./assets/images/skills/cpp.svg" alt="" />
+                <span class="skill-name">C++</span>
+              </div>
+              <div class="skill-bubble" tabindex="0">
+                <img src="./assets/images/skills/jsts.svg" alt="" />
+                <span class="skill-name">JS / TS</span>
+              </div>
+              <div class="skill-bubble" tabindex="0">
+                <img src="./assets/images/skills/python.svg" alt="" />
+                <span class="skill-name">Python</span>
+              </div>
+            </div>
+            <span class="skills-divider" aria-hidden="true"></span>
+            <div class="skills-group">
+              <div class="skill-bubble" tabindex="0">
+                <img src="./assets/images/skills/unity.svg" alt="" />
+                <span class="skill-name">Unity</span>
+              </div>
+              <div class="skill-bubble" tabindex="0">
+                <img src="./assets/images/skills/unreal.svg" alt="" />
+                <span class="skill-name">Unreal Engine</span>
+              </div>
+              <div class="skill-bubble" tabindex="0">
+                <img src="./assets/images/skills/spine.svg" alt="" />
+                <span class="skill-name">Spine</span>
+              </div>
+              <div class="skill-bubble" tabindex="0">
+                <img src="./assets/images/skills/raspberrypi.svg" alt="" />
+                <span class="skill-name">Raspberry Pi</span>
+              </div>
+            </div>
+          </div>
+          <div class="skills-row">
+            <div class="skills-group">
+              <div class="skill-bubble" tabindex="0">
+                <img src="./assets/images/skills/vue.svg" alt="" />
+                <span class="skill-name">Vue</span>
+              </div>
+              <div class="skill-bubble" tabindex="0">
+                <img src="./assets/images/skills/react.svg" alt="" />
+                <span class="skill-name">React</span>
+              </div>
+              <div class="skill-bubble" tabindex="0">
+                <img src="./assets/images/skills/django.svg" alt="" />
+                <span class="skill-name">Django</span>
+              </div>
+              <div class="skill-bubble" tabindex="0">
+                <img src="./assets/images/skills/express.svg" alt="" />
+                <span class="skill-name">Express.js</span>
+              </div>
+              <div class="skill-bubble" tabindex="0">
+                <img src="./assets/images/skills/aspnet.svg" alt="" />
+                <span class="skill-name">ASP.NET</span>
+              </div>
+              <div class="skill-bubble" tabindex="0">
+                <img src="./assets/images/skills/astro.svg" alt="" />
+                <span class="skill-name">Astro</span>
+              </div>
+            </div>
+          </div>
         </div>
-        
-        <div class="bubbles">
-            <a href="mailto:mntbliss@pm.me"><div class="bubble anim-element big-scale anim-element fade-in"><img class="bubble-inside" src="./assets/images/email.svg" alt="" /></div></a>
-            <a href="https://t.me/eepyloser"><div class="bubble anim-element big-scale anim-element fade-in"><img class="bubble-inside" src="./assets/images/telegram.svg" alt="" /></div></a>
-            <a href="https://github.com/limelight-mint"><div class="bubble anim-element big-scale anim-element fade-in"><img class="bubble-inside" src="./assets/images/github.svg" alt="" /></div></a>
+
+        <div class="hire-actions">
+          <button type="button" class="hire-btn hire-btn-primary" data-hire-mode="hire">Hire Me</button>
+          <button type="button" class="hire-btn hire-btn-ghost discuss-btn" data-hire-mode="discuss" aria-label="Discuss Your Project">Discuss Your Project</button>
         </div>
+    </div>
+
+    <div class="hero-bottom">
+      <!-- <div class="scroll-hint">SCROLL DOWN TO PROJECTS</div> -->
+      <div class="collab-marquee" aria-label="Companies and platforms">
+        <div class="collab-track">
+          <div class="collab-set">
+            <div class="collab-banner"><img class="collab-banner-native" src="./assets/images/collabs/sanrio.png" alt="Sanrio" /></div>
+            <div class="collab-banner"><img src="./assets/images/collabs/nintendo-switch.svg" alt="Nintendo Switch" /></div>
+            <div class="collab-banner"><img src="./assets/images/collabs/oculus-quest.svg" alt="Oculus Quest" /></div>
+            <div class="collab-banner"><img src="./assets/images/collabs/steam.svg" alt="Steam" /></div>
+            <div class="collab-banner"><img src="./assets/images/collabs/photon.svg" alt="Photon" /></div>
+            <div class="collab-banner"><img src="./assets/images/collabs/unity.svg" alt="Unity" /></div>
+            <div class="collab-banner"><img src="./assets/images/collabs/firebase.svg" alt="Firebase" /></div>
+            <div class="collab-banner"><img src="./assets/images/collabs/supabase.svg" alt="Supabase" /></div>
+            <div class="collab-banner"><img src="./assets/images/collabs/railway.svg" alt="Railway" /></div>
+            <div class="collab-banner"><img src="./assets/images/collabs/amazon.svg" alt="Amazon" /></div>
+            <div class="collab-banner"><img src="./assets/images/collabs/postgres.svg" alt="PostgreSQL" /></div>
+            <div class="collab-banner"><img src="./assets/images/collabs/mongodb.svg" alt="MongoDB" /></div>
+            <div class="collab-banner"><img src="./assets/images/collabs/digitalocean.svg" alt="DigitalOcean" /></div>
+            <div class="collab-banner"><img src="./assets/images/collabs/app-store.svg" alt="App Store" /></div>
+            <div class="collab-banner"><img src="./assets/images/collabs/google-play.svg" alt="Google Play" /></div>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
   <section class="projects">
-    <!-- <h2>Projects:</h2> -->
+    <div class="project-filters" role="tablist" aria-label="Filter projects">
+      <button type="button" class="filter-btn active" data-filter="all">All</button>
+      <button type="button" class="filter-btn" data-filter="games">Games</button>
+      <button type="button" class="filter-btn" data-filter="mods">Mods</button>
+      <button type="button" class="filter-btn" data-filter="frontend">Frontend</button>
+      <button type="button" class="filter-btn" data-filter="backend">Backend</button>
+    </div>
     <div class="masonry">
 
-      <div class="card">
-        <video muted autoplay playsinline loop src="./assets/videos/projects/vin-decoder.mp4" style="object-fit: contain;" ></video>
+      <div class="card" data-category="frontend backend">
+        <video muted playsinline loop src="./assets/videos/projects/vin-decoder.mp4" style="object-fit: contain;"  preload="none"></video>
         <div class="info">
           <h3>VIN Decoder</h3>
           <p>Decoder for VIN codes (for checking vehicles data)</p>
@@ -62,9 +179,9 @@
           <a class="card-project-link" href="https://vin-decoder-fawn.vercel.app/" target="_blank" rel="noopener noreferrer" aria-label="Open website"><img src="./assets/images/globe.svg" alt="" /></a>
           <a class="card-project-link" href="https://github.com/mntbliss/vin-decoder" target="_blank" rel="noopener noreferrer" aria-label="Open on GitHub"><img src="./assets/images/github.svg" alt="" /></a>
         </div>
-      </div>  
-      <div class="card">
-        <video muted autoplay playsinline loop src="./assets/videos/projects/vocaloid-guesser.mp4" style="object-fit: contain;" ></video>
+      </div>
+      <div class="card" data-category="frontend backend">
+        <video muted playsinline loop src="./assets/videos/projects/vocaloid-guesser.mp4" style="object-fit: contain;"  preload="none"></video>
         <div class="info">
           <h3>Vocaloid Guesser</h3>
           <p>Guess the song website for Vocaloid, UTAU and SynthV singers </p>
@@ -74,9 +191,9 @@
           <a class="card-project-link" href="https://vocaloid.minty.bar" target="_blank" rel="noopener noreferrer" aria-label="Open website"><img src="./assets/images/globe.svg" alt="" /></a>
           <a class="card-project-link" href="https://github.com/mntbliss/vocaloid-guesser" target="_blank" rel="noopener noreferrer" aria-label="Open on GitHub"><img src="./assets/images/github.svg" alt="" /></a>
         </div>
-      </div>   
-      <div class="card">
-        <video muted autoplay playsinline loop src="./assets/videos/projects/leaftube.mp4" style="object-fit: contain;" ></video>
+      </div>
+      <div class="card" data-category="frontend">
+        <video muted playsinline loop src="./assets/videos/projects/leaftube.mp4" style="object-fit: contain;"  preload="none"></video>
         <div class="info">
           <h3>leaftube</h3>
           <p>Custom Youtube Music desktop player without distractions and ads. No premium buttons, no subscriptions, no ads, simple music videos and you, just as it should be.</p>
@@ -85,9 +202,9 @@
           <div class="made-with">Electron, NodeJS, Youtube API, CSS, TypeScript, Discord Rich Presence, Google Auth API</div>
           <a class="card-project-link" href="https://github.com/mntbliss/leaftube-" target="_blank" rel="noopener noreferrer" aria-label="Open on GitHub"><img src="./assets/images/github.svg" alt="" /></a>
         </div>
-      </div>      
-      <div class="card">
-        <video muted autoplay playsinline loop src="./assets/videos/projects/mintybar.mp4" style="object-fit: contain;" ></video>
+      </div>
+      <div class="card" data-category="frontend backend">
+        <video muted playsinline loop src="./assets/videos/projects/mintybar.mp4" style="object-fit: contain;"  preload="none"></video>
         <div class="info">
           <h3>minty.bar</h3>
           <p>Minty Universe platform for users to track their inventory and time in our games and receive rewards. Community-driven place.</p>
@@ -97,8 +214,8 @@
           <a class="card-project-link" href="https://minty.bar" target="_blank" rel="noopener noreferrer" aria-label="Open website"><img src="./assets/images/globe.svg" alt="" /></a>
         </div>
       </div>
-      <div class="card">
-        <video muted autoplay playsinline loop src="./assets/videos/projects/hattoribattleclash.mp4" ></video>
+      <div class="card" data-category="games backend">
+        <video muted playsinline loop src="./assets/videos/projects/hattoribattleclash.mp4"  preload="none"></video>
         <div class="info">
           <h3>Hattori: Battle Clash</h3>
           <p>Online mobile PvP with 3D MMORPG battler mechanics. Craft and throw shurikens, harpoon players, loot the regions, create your own shurikens.</p>
@@ -109,8 +226,8 @@
           <a class="card-project-link" href="https://apps.apple.com/us/app/hattori-battle-clash/id6742995620" target="_blank" rel="noopener noreferrer" aria-label="Open AppStore"><img src="./assets/images/apple.svg" alt="" /></a>
         </div>
       </div>
-      <div class="card">
-        <video muted autoplay playsinline loop src="./assets/videos/projects/hattorip2e.mp4" ></video>
+      <div class="card" data-category="frontend backend">
+        <video muted playsinline loop src="./assets/videos/projects/hattorip2e.mp4"  preload="none"></video>
         <div class="info">
           <h3>Hattori: Play2Earn App</h3>
           <p>Telegram Application to track your progress in game, participate in events, and competing with other players for rewards and tokens.</p>
@@ -121,8 +238,8 @@
           <a class="card-project-link" href="https://t.me/hattoribot" target="_blank" rel="noopener noreferrer" aria-label="Open in Telegram"><img src="./assets/images/telegram.svg" alt="" /></a>
         </div>
       </div>
-      <div class="card">
-        <video muted autoplay playsinline loop src="./assets/videos/projects/aion2tracker.mp4" style="object-fit: contain;" ></video>
+      <div class="card" data-category="frontend mods">
+        <video muted playsinline loop src="./assets/videos/projects/aion2tracker.mp4" style="object-fit: contain;"  preload="none"></video>
         <div class="info">
           <h3>Aion 2 Tracker</h3>
           <p>Online timers and daily TODO tracker for online MMORPG Aion 2</p>
@@ -131,9 +248,9 @@
           <div class="made-with">Vue2, JavaScript, CSS, HTML, Cloudflare</div>
           <a class="card-project-link" href="https://aion2tracker.com" target="_blank" rel="noopener noreferrer" aria-label="Open website"><img src="./assets/images/globe.svg" alt="" /></a>
         </div>
-      </div>  
-      <div class="card">
-        <video muted autoplay playsinline loop src="./assets/videos/projects/funkymonkeys.mp4" ></video>
+      </div>
+      <div class="card" data-category="games frontend">
+        <video muted playsinline loop src="./assets/videos/projects/funkymonkeys.mp4"  preload="none"></video>
         <div class="info">
           <h3>Funky Monkeys</h3>
           <p>Online PvP match-3 game integrated in browser (WebGL) and Telegram Web App with all the benefits of telegram (stars, TON bets to fight with friends, etc.)</p>
@@ -142,8 +259,8 @@
           <div class="made-with">C#, Unity, Webgl + JS, Telegram API, React</div>
         </div>
       </div>
-      <div class="card">
-        <video muted autoplay playsinline loop src="./assets/videos/projects/tsuchushop.mp4" ></video>
+      <div class="card" data-category="frontend backend">
+        <video muted playsinline loop src="./assets/videos/projects/tsuchushop.mp4"  preload="none"></video>
         <div class="info">
           <h3>@tsuchu Shop</h3>
           <p>Art website of an artist (@tsuchu) to place orders and receive order details in all social media DMs directly.</p>
@@ -152,8 +269,8 @@
           <div class="made-with">React, TypeScript, Discord API, Telegram API, Skrill API</div>
         </div>
       </div>
-      <div class="card">
-        <img src="./assets/images/projects/eremite.gif" style="object-fit: contain;" />
+      <div class="card" data-category="mods backend">
+        <video muted playsinline loop preload="none" src="./assets/videos/projects/eremite.mp4" style="object-fit: contain;"></video>
         <div class="info">
           <h3>Discord Genshin Bot</h3>
           <p>Bot that can gift Welkin Moon (yes, in-game*), pull wishes with custom characters, sacrifice waifus for Primogems, do !daily, !travel across Teyvat, visit Dori !shop.</p>
@@ -164,8 +281,8 @@
           <a class="card-project-link" href="https://github.com/limelight-mint/Eremite" target="_blank" rel="noopener noreferrer" aria-label="Open on GitHub"><img src="./assets/images/github.svg" alt="" /></a>
         </div>
       </div>
-      <div class="card">
-        <video muted autoplay playsinline loop src="./assets/videos/projects/hellokittygoodnight.mp4" ></video>
+      <div class="card" data-category="games">
+        <video muted playsinline loop src="./assets/videos/projects/hellokittygoodnight.mp4"  preload="none"></video>
         <div class="info">
           <h3>Hello Kitty: Good Night</h3>
           <p>Educational game for toddlers with Hello Kitty and friends.</p>
@@ -176,19 +293,19 @@
           <a class="card-project-link" href="https://apps.apple.com/us/app/hello-kitty-good-night-tale/id1566525334" target="_blank" rel="noopener noreferrer" aria-label="Open AppStore"><img src="./assets/images/apple.svg" alt="" /></a>
         </div>
       </div>
-      <div class="card">
-        <video muted autoplay playsinline loop src="./assets/videos/projects/gitlabbot.mp4" style="object-fit: contain;" ></video>
+      <div class="card" data-category="backend">
+        <video muted playsinline loop src="./assets/videos/projects/gitlabbot.mp4" style="object-fit: contain;"  preload="none"></video>
         <div class="info">
           <h3>Discord Gitlab Bot</h3>
-          <p>Bot that pings and invites to thread people from Gitlab. Creates threads for PR, merges, comments, etc. This way you can check opened branches and comments from your discord right away, even without VPN.</a></p>
+          <p>Bot that pings and invites to thread people from Gitlab. Creates threads for PR, merges, comments, etc. This way you can check opened branches and comments from your discord right away, even without VPN.</p>
         </div>
         <div class="card-footer">
           <div class="made-with">C#, Gitlab API, Entity Framework, DSharp, Discord API, Discord Webhooks</div>
           <a class="card-project-link" href="https://github.com/limelight-mint/Git-Discord-Webhook-Helper" target="_blank" rel="noopener noreferrer" aria-label="Open on GitHub"><img src="./assets/images/github.svg" alt="" /></a>
         </div>
       </div>
-      <div class="card">
-        <video muted autoplay playsinline loop src="./assets/videos/projects/kidecatsgoodnight.mp4" ></video>
+      <div class="card" data-category="games">
+        <video muted playsinline loop src="./assets/videos/projects/kidecatsgoodnight.mp4"  preload="none"></video>
         <div class="info">
           <h3>Kid-e-Cats: Bedtime Stories</h3>
           <p>Educational game for toddlers with Kid-e-Cats characters.</p>
@@ -199,9 +316,85 @@
           <a class="card-project-link" href="https://apps.apple.com/us/app/kid-e-cats-bedtime-stories/id1568107572" target="_blank" rel="noopener noreferrer" aria-label="Open AppStore"><img src="./assets/images/apple.svg" alt="" /></a>
         </div>
       </div>
+    </div>
   </section>
 
+  <div class="hire-modal" id="hire-modal" hidden>
+    <div class="hire-modal-backdrop" data-hire-close></div>
+    <div class="hire-modal-panel" role="dialog" aria-modal="true" aria-labelledby="hire-modal-title">
+      <button type="button" class="hire-modal-close" data-hire-close aria-label="Close">&times;</button>
+      <h2 id="hire-modal-title">Let's talk</h2>
+      <p class="hire-modal-subtitle">Consultation is free · tell me a little about your idea</p>
+
+      <form id="hire-form" class="hire-form" novalidate>
+        <label class="hire-field">
+          <span>Project type</span>
+          <select name="projectType" required>
+            <option value="" disabled selected>Choose one…</option>
+            <option value="Game">Game</option>
+            <option value="Mobile App">Mobile App</option>
+            <option value="Virtual Reality App">Virtual Reality App</option>
+            <option value="Desktop App">Desktop App</option>
+            <option value="Web Browser App">Web Browser App</option>
+            <option value="Web Site">Web Site</option>
+            <option value="Messenger App">Messenger App</option>
+            <option value="Bot">Bot</option>
+          </select>
+        </label>
+
+        <fieldset class="hire-field hire-contacts">
+          <legend>How can I reach you?</legend>
+          <p class="hire-hint">At least one contact · Telegram / WhatsApp / email</p>
+          <label class="hire-input-row">
+            <span>Telegram</span>
+            <input type="text" name="telegram" placeholder="@username" autocomplete="username" />
+          </label>
+          <label class="hire-input-row">
+            <span>WhatsApp</span>
+            <input type="tel" name="whatsapp" placeholder="+1 234 567 8900" autocomplete="tel" />
+          </label>
+          <label class="hire-input-row">
+            <span>Email</span>
+            <input type="email" name="email" placeholder="you@mail.com" autocomplete="email" />
+          </label>
+        </fieldset>
+
+        <label class="hire-field">
+          <span>Description</span>
+          <textarea name="description" rows="4" placeholder="What do you want to build?" required></textarea>
+        </label>
+
+        <div class="hire-budget">
+          <label class="hire-budget-inline" for="hire-budget">
+            <span>Budget:</span>
+            <span class="hire-budget-tilde" aria-hidden="true">~</span>
+            <span class="hire-budget-currency" aria-hidden="true">$</span>
+            <input id="hire-budget" type="number" name="budget" min="0" step="100" placeholder="2000" />
+            <span class="hire-budget-optional">USD (optional)</span>
+          </label>
+          <p class="hire-hint">Max ceiling — ~10% reserved for servers/extras so you don’t go over. Empty = free consultation.</p>
+        </div>
+
+        <label class="hire-hp" aria-hidden="true">
+          <span>Website</span>
+          <input type="text" name="website" tabindex="-1" autocomplete="off" />
+        </label>
+
+        <p class="hire-form-error" id="hire-form-error" hidden></p>
+
+        <div class="hire-form-actions">
+          <button type="submit" class="hire-btn hire-btn-primary">Send request</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
   <script src="./assets/js/main.js" type="module"></script>
+  <script src="./assets/js/ui/project-filter.js" type="module"></script>
+  <script src="./assets/js/ui/project-videos.js" type="module"></script>
+  <script src="./assets/js/ui/collab-marquee.js" type="module"></script>
+  <script src="./assets/js/ui/hire-modal.js" type="module"></script>
+  <script src="./assets/js/ui/discuss-notify.js" type="module"></script>
   <script src="./assets/js/helpers/discord-helper.js" type="module"></script>
 </body>
 </html>
