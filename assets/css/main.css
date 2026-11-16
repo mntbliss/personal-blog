@@ -1043,6 +1043,44 @@ body.hire-modal-open {
   flex: 1;
 }
 
+a.leaftube-now {
+  margin: 0.75rem 0 0;
+  padding: 0.55rem 0.65rem;
+  border-radius: 12px;
+  background: rgba(160, 179, 255, 0.12);
+  border: 1px solid rgba(160, 179, 255, 0.22);
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  text-decoration: none;
+  color: inherit;
+  transition: background 0.2s ease, border-color 0.2s ease;
+}
+
+a.leaftube-now:hover {
+  background: rgba(160, 179, 255, 0.2);
+  border-color: rgba(160, 179, 255, 0.4);
+}
+
+.leaftube-now-label {
+  font-size: 0.68rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.45);
+}
+
+.leaftube-now-track {
+  color: var(--text, #fff);
+  font-size: 0.88rem;
+  font-weight: 600;
+  line-height: 1.35;
+  word-break: break-word;
+}
+
+a.leaftube-now:hover .leaftube-now-track {
+  color: var(--accent-link, #b8c7ff);
+}
+
 .card-footer {
   display: flex;
   align-items: flex-end;

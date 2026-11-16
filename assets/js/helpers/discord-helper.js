@@ -58,6 +58,17 @@ export default class DiscordHelper {
             return { imageUrl, description, subtitle, link };
         }
 
+        // leaftube: title in large_text, YT id in large_image — not details/state
+        const leaftube = this.GetLeaftubeNowPlaying();
+        if (leaftube) {
+            return {
+                imageUrl: leaftube.imageUrl || icons.unknown_app,
+                description: 'Playing leaftube 🌿',
+                subtitle: TrimWrap(leaftube.song),
+                link: leaftube.youtubeUrl,
+            };
+        }
+
         const activities = this.data['activities'];
         if (isNullOrEmpty(activities) || !Array.isArray(activities) || activities.length === 0) return null;
 
@@ -95,6 +106,55 @@ export default class DiscordHelper {
         dot.classList.remove('online', 'idle', 'dnd', 'offline');
         dot.classList.add(this.GetDiscordStatus());
         holder?.classList.add('is-visible');
+    }
+
+    /**
+     * leaftube RPC: track title is assets.large_text (before " • views"),
+     * video id is in assets.large_image (…/vi/ID/…). state is not the YT title.
+     */
+    GetLeaftubeNowPlaying() {
+        const activities = this.data['activities'];
+        if (isNullOrEmpty(activities) || !Array.isArray(activities)) return null;
+
+        const activity = activities.find((a) =>
+            String(a?.name || '').toLowerCase().includes('leaftube'),
+        );
+        if (!activity) return null;
+
+        const largeText = typeof activity.assets?.large_text === 'string'
+            ? activity.assets.large_text.trim()
+            : '';
+        // "Biteki びてき • 1.9万回視聴 • 高評価 545 件" → "Biteki びてき"
+        const song = largeText
+            ? largeText.split(/\s*•\s*/)[0].trim()
+            : (typeof activity.state === 'string' ? activity.state.trim() : '');
+        if (!song) return null;
+
+        const imageUrl = ResolveActivityImageUrl(activity);
+        const videoId =
+            ExtractYoutubeVideoId(imageUrl) ||
+            ExtractYoutubeVideoId(String(activity.assets?.large_image || ''));
+        const youtubeUrl = videoId ? `https://www.youtube.com/watch?v=${videoId}` : null;
+
+        return { song, youtubeUrl, imageUrl, videoId };
+    }
+
+    InitializeLeaftubeCard() {
+        const el = document.getElementById('leaftube-now');
+        const track = document.getElementById('leaftube-now-track');
+        if (!el || !track) return;
+
+        const now = this.GetLeaftubeNowPlaying();
+        if (!now?.youtubeUrl) {
+            el.hidden = true;
+            el.removeAttribute('href');
+            track.textContent = '';
+            return;
+        }
+
+        track.textContent = now.song;
+        el.href = now.youtubeUrl;
+        el.hidden = false;
     }
 
     /** Shows Discord activity in about-glass when available; hides it otherwise. */
@@ -171,11 +231,15 @@ function ExtractUrlFromText(text) {
     return match ? match[0].replace(/[)\]\s"']+$/, '') : null;
 }
 
-// extract yt vid id from i.ytimg.com/vi/VIDEO_ID/... or youtube.com/watch?v=VIDEO_ID or even youtu.be/VIDEO_ID
+// extract yt vid id from …/vi/ID/…, watch?v=, youtu.be, etc.
 function ExtractYoutubeVideoId(url) {
     if (typeof url !== 'string') return null;
-    const m = url.match(/(?:ytimg\.com\/vi\/|youtube\.com\/watch\?v=|youtu\.be\/|music\.youtube\.com\/watch\?v=)([a-zA-Z0-9_-]{11})/);
-    return m ? m[1] : null;
+    const vi = url.match(/\/vi\/([a-zA-Z0-9_-]{11})(?:\/|$|\?|&)/);
+    if (vi) return vi[1];
+    const watch = url.match(/[?&]v=([a-zA-Z0-9_-]{11})/);
+    if (watch) return watch[1];
+    const short = url.match(/youtu\.be\/([a-zA-Z0-9_-]{11})/);
+    return short ? short[1] : null;
 }
 
 // prefer spotify/yt music link: act.url, URL in details/state, or from YT thumbnail when Listening

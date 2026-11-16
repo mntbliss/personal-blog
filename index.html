@@ -192,11 +192,15 @@
           <a class="card-project-link" href="https://github.com/mntbliss/vocaloid-guesser" target="_blank" rel="noopener noreferrer" aria-label="Open on GitHub"><img src="./assets/images/github.svg" alt="" /></a>
         </div>
       </div>
-      <div class="card" data-category="frontend">
+      <div class="card" data-category="frontend" id="leaftube-card">
         <video muted playsinline loop src="./assets/videos/projects/leaftube.mp4" style="object-fit: contain;"  preload="none"></video>
         <div class="info">
           <h3>leaftube</h3>
           <p>Custom Youtube Music desktop player without distractions and ads. No premium buttons, no subscriptions, no ads, simple music videos and you, just as it should be.</p>
+          <a class="leaftube-now" id="leaftube-now" hidden target="_blank" rel="noopener noreferrer">
+            <span class="leaftube-now-label">Now playing</span>
+            <span class="leaftube-now-track" id="leaftube-now-track"></span>
+          </a>
         </div>
         <div class="card-footer">
           <div class="made-with">Electron, NodeJS, Youtube API, CSS, TypeScript, Discord Rich Presence, Google Auth API</div>

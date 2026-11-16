@@ -18,6 +18,7 @@ function applyDiscordPresence(data) {
     discordHelper = new DiscordHelper(data);
     discordHelper.InitializeDiscord();
     discordHelper.InitializeAboutGlass();
+    discordHelper.InitializeLeaftubeCard();
 }
 
 async function refreshDiscordPresence() {
