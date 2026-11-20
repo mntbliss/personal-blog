@@ -1033,10 +1033,19 @@ body.hire-modal-open {
 }
 
 .card video {
-    width: 100%;
-    height: 300px;
-    object-fit: cover;
-  }
+  display: block;
+  width: 100%;
+  height: 300px;
+  flex-shrink: 0;
+  object-fit: contain;
+  object-position: center;
+  background: rgba(0, 0, 0, 0.25);
+}
+
+/* Fill the preview window (crops edges) */
+.card-covered video {
+  object-fit: cover;
+}
 
 .card .info {
   padding: 1rem 1rem 0.6rem;
@@ -1098,7 +1107,8 @@ a.leaftube-now:hover .leaftube-now-track {
   min-width: 0;
 }
 
-.card-project-link {
+.card-project-link,
+.card-steam-link {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1110,12 +1120,14 @@ a.leaftube-now:hover .leaftube-now-track {
   transition: background 0.2s ease, transform 0.2s ease;
 }
 
-.card-project-link:hover {
+.card-project-link:hover,
+.card-steam-link:hover {
   background: rgba(255, 255, 255, 0.16);
   transform: scale(1.08);
 }
 
-.card .card-project-link img {
+.card .card-project-link img,
+.card .card-steam-link img {
   width: 18px;
   height: 18px;
   object-fit: contain;
